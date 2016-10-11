@@ -1,0 +1,102 @@
+<div class="col-sm-12">
+      <div class="col-sm-4">
+        <label>
+          city
+        </label>
+      
+        @Html.DropDownList("id", (IEnumerable<SelectListItem>)ViewBag.List, "---select---", 
+        new { 
+            id = "name" 
+        })
+        
+     
+     <div>
+
+------------------------------
+public ActionResult drobdown()
+        {
+            var dr = list();
+            ViewBag.List = new SelectList(dr.AsEnumerable(), "id", "name");
+            return View();
+        }
+---------------------------
+
+@model MvcAppViewback.Service1
+@{
+    var AutoID = Convert.ToInt64(ViewData["AutoID"]);
+    
+}
+<br />
+<br />
+<div class="col-sm-12">
+    <div class="col-sm-12">
+        <div class="col-sm-4">
+            <label>
+                ID
+            </label>
+            <input type="text" id="id"  value="@AutoID" class="form-control" readonly="readonly"/>
+            <label id="ys" style="color: Red">
+                Enter ID..!
+            </label>
+        </div>
+    </div>
+-------------------------------------
+public ActionResult autoid()
+        {
+            ViewData["AutoID"] = auto();
+            return View();
+        }
+-----------------------------------
+public Int64 auto()
+        {
+            Int64 id = 0;
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            List<Class1> ob = new List<Class1>();
+            Class1 obj;
+            {
+                con.Open();
+                using (cmd = new SqlCommand("sp_idautos", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        obj = new Class1();
+                        //obj.id = Convert.ToInt64(dr["ids"]);
+                        id = Convert.ToInt64(dr["ids"]);
+                        ob.Add(obj);
+                    }
+                }
+
+            }
+            return id;
+
+        }
+-----------------------------------
+ public List<Class1> list()
+        {
+
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            List<Class1> ob = new List<Class1>();
+            Class1 obj;
+            {
+                con.Open();
+                using (cmd = new SqlCommand("sp_downs", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        obj = new Class1();
+                        //obj.id = Convert.ToInt64(dr["ids"]);
+                        obj.name = Convert.ToString(dr["city"]);
+                        ob.Add(obj);
+                    }
+                }
+
+            }
+            return ob;
+         }
+-------------------------

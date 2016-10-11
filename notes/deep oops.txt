@@ -1,0 +1,415 @@
+url:
+-----
+http://pankajtiwarii.blogspot.in/p/oops-abstraction-encapsulation.html
+
+
+
+Abstraction:
+Abstraction is "To represent the essential feature without representing the back ground details."
+
+Abstraction lets you focus on what the object does instead of how it does it.
+
+Abstraction provides you a generalized view of your classes or object by providing relevant information.
+
+Abstraction is the process of hiding the working style of an object, and showing the information of an object in understandable manner.
+
+Real world Example of Abstraction: - 
+Suppose you have an object Mobile Phone.
+
+Suppose you have 3 mobile phones as following:-
+
+Nokia 1400 (Features:- Calling, SMS)
+Nokia 2700 (Features:- Calling, SMS, FM Radio, MP3, Camera)
+Black Berry (Features:-Calling, SMS, FM Radio, MP3, Camera, Video Recording, Reading E-mails)
+
+Abstract information (Necessary and Common Information) for the object "Mobile Phone" is make a call to any number and can send SMS."
+
+so that, for mobile phone object you will have abstract class like following:-
+
+    abstract class MobilePhone
+    {
+        public void Calling();
+        public void SendSMS();
+    }
+
+    public class Nokia1400 : MobilePhone
+    {
+
+    }
+
+    public class Nokia2700 : MobilePhone
+    {
+        public void FMRadio();
+        public void MP3();
+        public void Camera();
+    }
+
+    public class BlackBerry : MobilePhone
+    {
+        public void FMRadio();
+        public void MP3();
+        public void Camera();
+        public void Recording();
+        public void ReadAndSendEmails();
+
+    }
+
+Abstraction means putting all the variables and methods in a class which are necessary.
+For example: - Abstract class and abstract method.
+Abstraction is the common thing.
+example: 
+If somebody in your collage tell you to fill application form, you will fill your details like name, address, data of birth, which semester, percentage you have got etc.
+If some doctor gives you an application to fill the details, you will fill the details like name, address, date of birth, blood group, height and weight.
+See in the above example what is the common thing?
+Age, name, address so you can create the class which consist of common thing that is called abstract class. 
+That class is not complete and it can inherit by other class.
+
+Encapsulation: 
+Wrapping up data member and method together into a single unit (i.e. Class) is called Encapsulation.
+
+Encapsulation is like enclosing in a capsule. That is enclosing the related operations and data related to an object into that object.
+
+Encapsulation is like your bag in which you can keep your pen, book etc. It means this is the property of encapsulating members and functions.
+
+    class Bag
+    {
+        book;
+        pen;
+        ReadBook();
+    }
+
+
+Encapsulation means hiding the internal details of an object, i.e. how an object does something.
+
+Encapsulation prevents clients from seeing its inside view, where the behaviour of the abstraction is implemented.
+
+Encapsulation is a technique used to protect the information in an object from the other object.
+
+Hide the data for security such as making the variables as private, and expose the property to access the private data which would be public.
+So, when you access the property you can validate the data and set it.
+
+Example:
+
+class Demo
+{
+   private int _mark;
+
+   public int Mark
+   {
+     get { return _mark; }
+     set { if (_mark > 0) _mark = value; else _mark = 0; }
+   }
+ }
+
+Real world Example of Encapsulation:-
+Let's take example of Mobile Phone and Mobile Phone Manufacturer
+Suppose you are a Mobile Phone Manufacturer and you designed and developed a Mobile Phone design(class), now by using machinery you are manufacturing a Mobile Phone(object) for selling, when you sell your Mobile Phone the user only learn how to use the Mobile Phone but not that how this Mobile Phone works.
+
+This means that you are creating the class with function and by making object (capsule) of it you are making availability of the functionality of you class by that object and without the interference in the original class.
+
+Example-2: 
+TV operation 
+It is encapsulated with cover and we can operate with remote and no need to open TV and change the channel.
+Here everything is in private except remote so that anyone can access not to operate and change the things in TV.
+
+
+Inheritance: 
+When a class acquire the property of another class is known as inheritance.
+Inheritance is process of object reusability.
+For example, A Child acquire property of Parents.
+
+public class ParentClass
+    {
+        public ParentClass()
+        {
+            Console.WriteLine("Parent Constructor.");
+        }
+
+        public void print()
+        {
+            Console.WriteLine("I'm a Parent Class.");
+        }
+    }
+
+    public class ChildClass : ParentClass
+    {
+        public ChildClass()
+        {
+            Console.WriteLine("Child Constructor.");
+        }
+
+        public static void Main()
+        {
+            ChildClass child = new ChildClass();
+
+            child.print();
+        }
+    }
+
+
+
+Output:
+    Parent Constructor.
+    Child Constructor.
+    I'm a Parent Class.
+
+Polymorphism: 
+
+
+Polymorphism means one name many forms.
+One function behaves different forms.
+In other words, "Many forms of a single object is called Polymorphism."
+
+Real World Example of Polymorphism:
+Example-1: 
+A Teacher behaves to student.
+A Teacher behaves to his/her seniors.
+Here teacher is an object but attitude is different in different situation.
+Example-2: 
+Person behaves SON in house at the same time that person behaves EMPLOYEE in office.
+Example-3: 
+Your mobile phone, one name but many forms
+As phone
+As camera
+As mp3 player
+As radio
+To Read Polmorphism in Detail click following link:-
+
+Polymorphism in .Net
+
+
+
+Difference between Abstraction andEncapsulation :-
+
+Abstraction
+Encapsulation
+1. Abstraction solves the problem in the design level.
+
+1. Encapsulation solves the problem in the implementation level.
+
+2. Abstraction is used for hiding the unwanted data and giving relevant data.
+
+2. Encapsulation means hiding the code and data into a single unit to protect the data from outside world.
+
+
+3. Abstraction lets you focus on what the object does instead of how it does it
+
+3. Encapsulation means hiding the internal details or mechanics of how an object does something.
+
+4. Abstraction- Outer layout, used in terms of design.
+For Example:-
+ Outer Look of a Mobile Phone, like it has a display screen and keypad buttons to dial a number.
+
+4. Encapsulation- Inner layout, used in terms of implementation.
+For Example:- Inner Implementation detail of a Mobile Phone, how keypad button and Display Screen are connect with each other using circuits.
+
+
+The easier way to understand Abstraction and encapsulation is as follows:-
+Real World Example:- 
+
+Take an example of Mobile Phone:- 
+You have a Mobile Phone, you can dial a number using keypad buttons. Even you don't know how these are working internally. This is called Abstraction. You have the only information that is needed to dial a number. But not its internal working of mobile.
+
+But how the Mobile Phone internally working?, how keypad buttons are connected with internal circuit? is called Encapsulation.
+
+Summary:
+"Encapsulation is accomplished by using Class. - Keeping data and methods that accesses that data into a single unit" 
+"Abstraction is accomplished by using Interface. - Just giving the abstract information about what it can do without specifying the back ground details" 
+"Information/Data hiding is accomplished by using Modifiers - By keeping the instance variables private or protected."
+
+
+Constructor types with example programs in C#.NET
+
+
+Definition:
+In simple terms, Constructor is a special kind of method with class name as method name and gets executed when its (class) object is created.
+This article will give you a detailed explanation on C# constructors and its types.
+Now, when we look at the above definition in a broader sense, a constructor is a class method that gets automatically executed whenever class’s object is created.
+
+
+A special method of the class that will be automatically invoked when an instance of the class is created is called as constructor.
+
+Constructors can be classified into 5 types
+Default Constructor
+Parameterized Constructor
+Copy Constructor
+Static Constructor
+Private Constructor
+Default Constructor : A constructor without any parameters is called as default constructor. Drawback of default constructor is every instance of the class will be initialized to same values and it is not possible to initialize each instance of the class to different values.
+
+Example for Default Constructor
+
+Parameterized Constructor : A constructor with at least one parameter is called as parameterized constructor. Advantage of parameterized constructor is you can initialize each instance of the class to different values.
+
+
+Example for Parameterized Constructor
+
+using System;
+
+namespace ProgramCall
+{
+    class Test1
+    {
+        //Private fields of class
+        int A, B;
+
+        //default Constructor
+        public Test1()
+        {
+            A = 10;
+            B = 20;
+        }
+
+        //Paremetrized Constructor
+        public Test1(int X, int Y)
+        {
+            A = X;
+            B = Y;
+        }
+
+        //Method to print
+        public void Print()
+        {
+            Console.WriteLine("A  =  {0}\tB  =  {1}", A, B);
+        }      
+              
+    }
+
+    class MainClass
+    {
+        static void Main()
+        {
+
+            Test1 T1 = new Test1();  //Default Constructor is called
+            Test1 T2 = new Test1(80, 40); //Parameterized      Constructor is called        
+            T1.Print();
+            T2.Print();
+            Console.Read();       
+        }
+    }
+
+}
+
+Output
+
+A  =  10        B  =  20
+A  =  80        B  =  40
+
+Copy Constructor : A parameterized constructor that contains a parameter of same class type is called as copy constructor. Main purpose of copy constructor is to initialize new instance to the values of an existing instance.
+
+Example for Copy Constructor
+using System;
+
+namespace ProgramCall
+{
+    class Test2
+    {
+        int A, B;
+        public Test2(int X, int Y)
+        {
+            A = X;
+            B = Y;
+        }
+
+        //Copy Constructor
+        public Test2(Test2 T)
+        {
+            A = T.A;
+            B = T.B;
+        }
+
+
+     
+        public void Print()
+        {
+            Console.WriteLine("A  =  {0}\tB  =  {1}", A, B);
+        }  
+
+    }
+
+    class CopyConstructor
+    {
+        static void Main()
+        {        
+
+            Test2 T2 = new Test2(80, 90);
+            //Invoking copy constructor
+            Test2 T3 = new Test2(T2);          
+            T2.Print();
+            T3.Print();
+            Console.Read();
+        }
+    }
+}
+
+Output
+
+A  =  80        B  =  90
+A  =  80        B  =  90
+
+Static Constructor : You can create a constructor as static and when a constructor is created as static, it will be invoked only once for any number of instances of the class and it is during the creation of first instance of the class or the first reference to a static member in the class. Static constructor is used to initialize static fields of the class and to write the code that needs to be executed only once.
+
+Example for Static Constructor
+using System;
+
+namespace ProgramCall
+{
+    class Test3
+    {
+
+        public Test3()
+        {
+
+            Console.WriteLine("Instance  Constructor");
+        }
+
+        static Test3()
+        {
+            Console.WriteLine("Static  Constructor");
+        }
+    }
+    class StaticConstructor
+    {
+        static void Main()
+        {
+            //Static Constructor and instance constructor, both are invoked for first instance.
+            Test3 T1 = new Test3();
+            //Only instance constructor is invoked.
+            Test3 T2 = new Test3();  
+
+            Console.Read();
+        }
+    }
+}
+
+Output
+
+Static  Constructor
+Instance  Constructor
+Instance  Constructor
+
+
+Private Constructor : You can also create a constructor as private. When a class contains at least one private constructor, then it is not possible to create an instance for the class. Private constructor is used to restrict the class from being instantiated when it contains every member as static.
+
+Some unique points related to constructors are as follows
+A class can have any number of constructors.
+A constructor doesn’t have any return type even void.
+A static constructor can not be a parameterized constructor.
+Within a class you can create only one static constructor.
+Note
+Ø       A static constructor should not be declared with any access modifier.
+Ø       A static constructor does not accept parameters
+Ø       A static constructor is called automatically.
+Ø       There is no way to call a static constructor directly.
+Ø       Can’t stop the execution of Static constructor
+
+Points to Remember
+Ø       Constructor is nothing but a special method, which initializes the class or its task to initialize the object of it class.
+Ø       Its name must be same as the name of class
+Ø       This is a special method as constructors do not have return types, not even void
+Ø       Constructor cannot return any value because they didn’t have any return type.
+Ø       Constructor can’t be get inherited, although a derived class can class the base class constructor.
+Ø       A class has atleast one constructor also known as default constructor [a constructor without parameter]
+Ø       You have to explicitly write a default constructor while overloading constructors.
+Ø       Concept declaring multiple constructors of a class with different sets of parameters known as Constructor overloading.
+Ø       A constructor can be called another constructor using this()

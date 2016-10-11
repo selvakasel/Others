@@ -1,0 +1,1052 @@
+! Operator:It is pronounced as not operator. It returns true if expression is false. The following demonstration will clear the concept of not operator.
+
+Examples:
+
+
+using System;
+ 
+namespace Not_Operator
+{
+  class Program
+   {
+     static void Main(string[] args)
+      {
+        string username, password;
+ 
+        Console.Write("Enter user name:\t");
+        username = Console.ReadLine();
+        Console.Write("Enter Password:\t");
+        password = Console.ReadLine();
+ 
+        if (!(username == "Steven" && password == "Clark"))
+         {
+           Console.WriteLine("\nLogin Successful");
+         }
+        else
+         {
+           Console.WriteLine("\nUnauthorised Access.                   Aborting...");
+         }
+        Console.ReadLine();
+      }
+   }
+}
+
+
+In the above example if you will enter the username as Steven and Password as Clark then it will deny you to login because it is evaluated by not (!) operator that returns false if the condition matches.
+
+
+
+Output 
+
+Enter user name :    Steven
+Enter Password :  Clark
+
+Unauthorised Access. Aborting...
+__________________________________________________________________________________________________________________________
+^ Operator: It is pronounced as xor operator. It returns false if the following condition matches:
+
+(i) if both or all the expression returns true.
+(ii) If both or all the expression returns false.
+
+Examples:
+
+
+using System;
+ 
+namespace xor_operator
+{
+  class Program
+   {
+     static void Main(string[] args)
+      {
+        string name, password;
+ 
+        name = "Steven";
+        password = "Clark";
+ 
+        //it returns false because both expression match.
+        if ((name == "Steven") ^ (password == "Clark"))
+         {
+           Console.WriteLine("Acess granted...");
+         }
+        else
+         {
+           Console.WriteLine("Access Denied. Aborting...");
+         }
+        Console.ReadLine();
+      }
+   }
+}
+
+
+In the above example, the both expression returns true, so the xor operator returns false and print “Access Denied. Aborting…”
+
+
+Output 
+
+
+Access Denied. Aborting... 
+
+__________________________________________________________________________________________________________________________
+1. Write a program to check whether input character is vowel or not.
+
+
+using System;
+ 
+namespace Example1
+{
+  class Program
+   {
+     static void Main(string[] args)
+      {
+        char ch;
+ 
+        Console.Write("Enter a character: \t");
+        ch = Convert.ToChar(Console.ReadLine());
+ 
+        if (ch == 'a' || ch == 'A' || ch == 'e' ||                 ch == 'E' || ch == 'i' || ch == 'I' ||                      ch == 'o' || ch == 'O' || ch == 'u' || ch=='U')
+         {
+           Console.WriteLine("\n\n{0} is vowel",ch);
+         }
+        else
+         {
+           Console.WriteLine("\n\n{0} is not vowel",ch);
+         }
+        Console.ReadLine();
+      }
+   }
+}
+
+
+
+
+Output 
+
+Enter a character :     E
+
+
+E is vowel
+
+
+_________________________________________________________________________________________________________________
+2.Calculate area of Rectangle
+
+
+using System;
+ 
+namespace Example2
+{
+  class Program
+   {
+     static void Main(string[] args)
+      {
+        int height, width, area;
+ 
+        Console.Write("Enter height:\t");
+        height = Convert.ToInt32(Console.ReadLine());
+ 
+        Console.Write("Enter width:\t");
+        width = Convert.ToInt32(Console.ReadLine());
+ 
+        area = height * width;
+ 
+        Console.WriteLine("\nArea of Rectangle is {0}",             area);
+        Console.ReadLine();
+      }
+   }
+}
+
+
+
+
+Output 
+
+Enter height :   5
+Enter width :    6
+
+Area of Rectangle is 30
+
+
+
+__________________________________________________________________________________________________________________________
+Conditional Constructs (C#)
+
+
+
+Conditional constructs is used to transfer execution control to the correct path based on comparison result. The conditional constructs determine runtime that which statements need to be executed. It uses comparison result for determining correct path of execution.
+
+If else, switch case are used for comparing value. In this chapter you will learn about conditional constructs in C#.
+
+List of Contents
+Conditional Constructs
+
+    Chapter 1: if-else constructs
+    Chapter 2: switch-case constructs
+    Chapter 3: Examples
+    Chapter 4: Exercises
+
+
+__________________________________________________________________________________________________________________________
+C# if else constructs
+
+The if… else construct is used for determining the flow of program based on returning expression value. It evaluates the comparison operator and based on value executes the statements. For example, if you want to execute a piece of code, when the requirements meet then if… else construct determine which piece of code will be executed. Else is default condition and executes when no if condition matches. The following example will clear the concept of if… else constructs.
+
+using System;
+ 
+namespace if_else_construct
+{
+  class Program
+   {
+     static void Main(string[] args)
+      {
+        int opt, num1, num2;
+        float result;
+ 
+        label:
+ 
+        Console.WriteLine("\n\tMenu");
+        Console.WriteLine("\nPress 1 for add");
+        Console.WriteLine("Press 2 for subtraction");
+        Console.WriteLine("Press 3 for multiplication");
+        Console.WriteLine("Press 4 for Division");
+             
+        Console.Write("\n\nEnter first number:\t");
+        num1 = Convert.ToInt32(Console.ReadLine());
+ 
+        Console.Write("Enter second number:\t");
+        num2 = Convert.ToInt32(Console.ReadLine());
+ 
+        Console.Write("\nEnter your option:\t");
+        opt = Convert.ToInt32(Console.ReadLine());
+ 
+        if (opt == 1)
+         {
+           result = num1 + num2;
+           Console.WriteLine("\n{0} + {1} = {2}", num1,                num2, result);
+         }
+        else if (opt == 2)
+         {
+           result = num1 - num2;
+           Console.WriteLine("\n{0} - {1} = {2}", num1,                num2, result);
+         }
+        else if (opt == 3)
+         {
+           result = num1 * num2;
+           Console.WriteLine("\n{0} x {1} = {2}", num1,                num2, result);
+         }
+        else if (opt == 4)
+         {
+           result = (float)(num1 / num2);
+           Console.WriteLine("\n{0} / {1} = {2}", num1,                num2, result);
+         }
+        else
+         {
+           Console.WriteLine("Invalid option. Try again");
+           goto label;
+         }
+        Console.ReadLine();           
+      }
+   }
+}
+   
+
+
+Output
+
+ 
+
+        Menu
+
+Press 1 for add
+Press 2 for subtraction
+Press 3 for multiplication
+Press 4 for Division
+
+
+Enter first number :       16
+Enter second number :   5
+
+Enter your option:          4
+
+16 / 5 = 3.2
+
+If you have more than one if construct then you can use else if construct for evaluating expression. The C# also supports nested if else construct. If you want to evaluate certain condition based on previous if, then you can use nested if-else constructs in C# programming.
+
+
+_________________________________________________________________________________________________________________________
+C# switch case constructs
+Switch case is also another condition constructs in C# programming that evaluates the condition as if else but only difference is that it makes program simpler and easier. It is used when there is multiple if condition in a program. It also includes a default value in Default statements. If no any case matches then Default statements executes and run the code.
+
+using System;
+ 
+namespace Switch_Case
+{
+  class Program
+   {
+     static void Main(string[] args)
+      {
+        int opt, num1, num2;
+        float result;
+ 
+        label:
+ 
+        Console.WriteLine("\n\tMenu");
+        Console.WriteLine("\nPress 1 for add");
+        Console.WriteLine("Press 2 for subtraction");
+        Console.WriteLine("Press 3 for multiplication");
+        Console.WriteLine("Press 4 for Division");
+  
+        Console.Write("\n\nEnter first number:\t");
+        num1 = Convert.ToInt32(Console.ReadLine());
+ 
+        Console.Write("Enter second number:\t");
+        num2 = Convert.ToInt32(Console.ReadLine());
+ 
+        Console.Write("\nEnter your option:\t");
+        opt = Convert.ToInt32(Console.ReadLine());
+ 
+        switch (opt)
+         {
+           case 1:
+               result = num1 + num2;
+               Console.WriteLine("\n{0} + {1} = {2}", num1,                num2, result);
+               break;
+ 
+           case 2:
+               result = num1 - num2;
+               Console.WriteLine("\n{0} - {1} = {2}", num1,                num2, result);
+               break;
+           case 3:
+               result = num1 * num2;
+               Console.WriteLine("\n{0} * {1} = {2}", num1,                num2, result);
+               break;
+           case 4:
+               result = (float)num1 / num2;
+               Console.WriteLine("\n{0} / {1} = {2}", num1,                num2, result);
+               break;
+           default:
+                   Console.WriteLine("\nInvalid option.                    Please try again.");
+                   goto label;
+         }
+        Console.ReadLine();
+      }
+   }
+}
+Output
+
+ 
+
+        Menu
+
+Press 1 for add
+Press 2 for subtraction
+Press 3 for multiplication
+Press 4 for Division
+
+
+Enter first number :       22
+Enter second number :   8
+
+Enter your option:          4
+
+22 / 8 = 2.75
+
+
+Guideline to use Switch case:
+
+1. Must include break statement in each case and default statements.
+
+2. If you are accepting char value then write it within single quotes as follow:
+case ‘1’, case ‘b’, case ‘c’, case ‘k’ etc.
+
+3.If you are accepting string value then write it within double quotes as follow:
+case “add”, case “sub”, case “mul”, case “div” etc.
+
+__________________________________________________________________________________________________________________________
+Conditional constructs example
+Qu 1:Write a program in which accept a number from the user and identify whether the number is even or odd.
+
+using System;
+ 
+namespace example1
+{
+  class Program
+   {
+     static void Main(string[] args)
+      {
+        int num;
+        Console.Write("Enter your number:\t");
+        num = Convert.ToInt32(Console.ReadLine());
+ 
+        if (num % 2 == 0)
+         {
+           Console.WriteLine("{0} is Even Number", num);
+         }
+        else
+         {
+           Console.WriteLine("{0} is Odd number", num);
+         }
+        Console.ReadLine();
+      }
+   }
+}
+
+
+
+Output
+
+ 
+
+Enter your number :     56
+56 is Even Number
+Qu2:Write a program in which accept a number from the user between 1 to 7 and display corresponding days starting with Monday.
+Hint: Use switch case
+
+using System;
+ 
+namespace example2
+{
+  class Program
+   {
+     static void Main(string[] args)
+      {
+        int opt;
+        label:
+        Console.Write("\n\nEnter your option (1-7) for             days. 1 for Monday:\t");
+        opt = Convert.ToInt32(Console.ReadLine());
+ 
+        switch (opt)
+         {
+           case 1:
+               Console.WriteLine("Monday");
+               break;
+           case 2:
+               Console.WriteLine("Tuesday");
+               break;
+           case 3:
+               Console.WriteLine("Wednesday");
+               break;
+           case 4:
+               Console.WriteLine("Thursday");
+               break;
+           case 5:
+               Console.WriteLine("Friday");
+               break;
+           case 6:
+               Console.WriteLine("Saturday");
+               break;
+           case 7:
+               Console.WriteLine("Sunday");
+               break;
+           default:
+              Console.WriteLine("Invalid option. Please                    try again\n");
+               goto label;
+         }
+        Console.ReadLine();
+      }
+   }
+}
+Output
+
+ 
+
+Enter your option <1-7> for days. 1 for Monday : 9
+Invalid option. Please try again
+
+
+Enter your option <1-7> for days. 1 for Monday : 2
+Tuesday
+
+
+
+_________________________________________________________________________________________________________________________
+C# Statements
+
+There are various basic things in C# that you need to know. These are very small but too effective. These are called statements in C#. Without covering statements in C#, you can’t be a good programmer.
+
+In C# programming, there is various statements as block, empty, goto-label, break, continue, return, throw, checked, unchecked, lock, using etc. These are small but give powerful control you to write your program.
+List of Contents
+C# Statements
+
+    Chapter 1: Block
+    Chapter 2: Empty
+    Chapter 3: Goto-label
+    Chapter 4: Break
+    Chapter 5: Continue
+    Chapter 6: Return
+    Chapter 7: Throw
+    Chapter 8: Checked
+    Chapter 9: Unchecked
+    Chapter 10: Lock
+    Chapter 11: Using
+    Chapter 12: Enumeration
+    Chapter 13: Structure
+    Chapter 14: Examples
+    Chapter 15: Exercises
+
+.
+
+
+__________________________________________________________________________________________________________________________
+C# Block Statement({})
+
+
+The block statement is used to write multiple segments of program in logical group.
+
+using System;
+ 
+namespace Block_statement
+{ //Begin Statement
+  class Program
+   { // Begin Statement
+     static void Main(string[] args)
+      { //Begin Statement
+        int num1,power;
+        num1 = 5;
+        power = num1 * num1;
+        Console.WriteLine(power);
+        Console.ReadLine();
+      } // End Statement
+   } // End Statement
+} // End Statement
+
+
+
+
+
+
+__________________________________________________________________________________________________________________________
+C# Empty Statement(;)
+Empty statement is used when you no need to perform an operation where a statement is required. It simple transfers control to the end point of the statement. It is also very useful with while loop with blank body and label statements.
+
+Example:
+
+using System;
+ 
+namespace empty_statement
+{
+  class Program
+   {
+     public bool print()
+      {
+        Console.WriteLine("Steven Clark");
+        return true;
+      }
+     static void Main(string[] args)
+      {
+        int i = 0;
+        Program p = new Program();
+        while (p.print())
+         {
+           ; //Empty Statement
+         }
+        Console.WriteLine("i = {0}", i);
+        Console.ReadLine();
+      }
+   }
+}
+Output
+
+ 
+
+Steven Clark
+Steven Clark
+Steven Clark
+Steven Clark
+Steven Clark
+Steven Clark
+Steven Clark
+Steven Clark
+Steven Clark
+Steven Clark
+Steven Clark
+Steven Clark
+Steven Clark
+Steven Clark
+Steven Clark
+
+
+__________________________________________________________________________________________________________________________
+C# Goto Statement
+
+
+The goto statement is a jump statement that controls the execution of the program to another segment of the same program. You create label at anywhere in program then can pass the execution control via the goto statements.
+
+using System;
+ 
+namespace goto_statement
+{
+  class Program
+   {
+     static void Main(string[] args)
+      {
+        string name;
+ 
+        label: //creating label with colon(:)
+ 
+        Console.WriteLine("Enter your name:");
+        name = Console.ReadLine();
+ 
+        Console.WriteLine("Welcome {0}", name);
+ 
+        goto label; //jump to label statement           
+      }
+   }
+}
+Output
+
+ 
+
+Enter your name :
+Steven
+Welcome Steven
+Enter your name :
+Clark
+Welcome Clark
+Enter your name :
+Steven Clark
+Welcome Steven Clark
+Enter your name :
+
+
+__________________________________________________________________________________________________________________________
+C# Break Statement
+
+The break statement is used to terminating the current flow of program and transfer controls to the next execution.
+Example:using System;
+ 
+namespace break_statement
+{
+  class Program
+   {
+     static void Main(string[] args)
+      {
+        int i = 0;
+ 
+        while (i < 100)
+         {
+           Console.WriteLine(i);
+           if (i == 20)
+            {
+              Console.WriteLine("breaking the current                     segment...");
+              break;
+            }
+           i++;
+         }  
+        Console.ReadLine();
+      }
+   }
+
+}
+
+
+
+
+Output
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+breaking the current segment....
+
+
+
+__________________________________________________________________________________________________________________________
+C# Continue Statement
+
+The continue statements enables you to skip the loop and jump the loop to next iteration.
+Example:
+
+using System;
+ 
+namespace Continue_Statement
+{
+  class Program
+   {
+     static void Main(string[] args)
+      {
+        int i = 0; 
+        while(i<10)
+         {
+           i++;
+           if (i < 6)
+            {
+              continue;
+            }    
+           Console.WriteLine(i);
+         }           
+        Console.ReadLine();
+      }
+   }
+}
+
+
+In this program, skips the loop until the current value of i reaches 6. Output is given below.
+
+
+
+Output
+
+ 
+
+6
+7
+8
+9
+10
+
+
+_________________________________________________________________________________________________________________________
+C# Return Statement
+
+A return statement is used for returning value to the caller from the called function. A easy example is mentioned below in a program that demonstrate the return statement very clearly.
+Example:
+
+using System;
+ 
+namespace Return_Statement
+{
+  class Program
+    {
+      public int add(int num1, int num2)
+       {
+         // returns the add of num1 and num2
+         return num1 + num2;
+       }
+      static void Main(string[] args)
+       {
+         Program p = new Program();
+         int result;
+         // calling the function add that will return 9 to          the result vaiable.
+         result = p.add(3, 6);
+         Console.WriteLine(result);
+ 
+         Console.ReadLine();
+       }
+    }
+}
+
+
+In this example the variable result calls the function add() with two parameters and the function add() returns addition of both number to the result variable using return keyword.
+
+
+Output
+
+ 
+
+9
+
+
+__________________________________________________________________________________________________________________________
+Structure (C#)
+
+Structure is the value type data type that can contain variables, methods, properties, events and so on. It simplifies the program and enhance performance of code in C# programming.
+
+The structure encapsulate small group of related variables inside a single user-defined data type. It improves speed and memory usage and also enhances performance and clarity of your code.
+How to use structure in C#?
+
+It is very simple to use structure in C#. The following programming example will show you to how to create and use structure in C# programming.
+Programming Example of Structure (C#)
+
+
+using System;
+ 
+namespace Structure
+{
+  class Program
+   {
+     // creating three different variable in single              structure
+     struct book
+      {
+        public string bookname;
+        public int price;
+        public string category;
+      }
+ 
+     static void Main(string[] args)
+      {
+        //Creating two book type variable
+        book language, database;
+ 
+        // Storing value in language variable
+        Console.Write("Enter book name:\t");
+        language.bookname = Console.ReadLine();
+        Console.Write("Enter book price:\t");
+        language.price = Convert.ToInt32(Console.                   ReadLine());
+        Console.Write("Enter book category:\t");
+        language.category = Console.ReadLine();
+ 
+        //Storing value in database variable
+        Console.Write("\n\nEnter book name:\t");
+        database.bookname = Console.ReadLine();
+        Console.Write("Enter book price:\t");
+        database.price = Convert.ToInt32(Console.                   ReadLine());
+        Console.Write("Enter book category:\t");
+        database.category = Console.ReadLine();
+ 
+ 
+        //Displaying value of language variable
+        Console.Write("\n\n===================");
+        Console.Write("\n\t\tLanguage\n");
+        Console.Write("===================\n\n");
+ 
+        Console.Write("Book Name:\t{0}",                           language.bookname);
+        Console.Write("\nBook Price:\t{0}",                         language.price);
+        Console.Write("\nBook Category:\t{0}",                     language.category);
+ 
+        Console.Write("\n\n==================\n");
+        Console.Write("\t\tDatabase\n");
+        Console.Write("====================\n\n");
+ 
+        Console.Write("Book Name:\t{0}",                           database.bookname);
+        Console.Write("\nBook Price:\t{0}",                         database.price);
+        Console.Write("\nBook Category:\t{0}",                     database.category);
+ 
+        Console.ReadLine();          
+      }
+   }
+}
+
+
+
+
+Output
+
+ 
+
+Enter book name :         C Sharp
+Enter book price :         34
+Enter book category :    Object Oriented Programming
+
+
+Enter book name :         SQL Server
+Enter book price :         23
+Enter book category :    Database Programming
+
+
+=============================================
+         Language
+=============================================
+
+Enter book name :         C Sharp
+Enter book price :         34
+Enter book category :    Object Oriented Programming
+
+
+=============================================
+         Database
+=============================================
+
+Enter book name :         SQL Server
+Enter book price :         23
+Enter book category :    Database Programming
+
+
+In the preceding example, we create a structure named book that contain three variables as bookname, price, category. These variables can be accessed by creating the object of book structure.
+
+Next, we create two variables of book as language and database. Then store the value in language and database and display the value on console.
+
+
+
+__________________________________________________________________________________________________________________________
+C# While Loop
+
+To become expert programmer from novice, you need to complete cover the looping segments. Loop is very important in every programming language that saves you from repetitive nature of work. The C# supports While, do while, and for loop. However, you can also use foreach and goto statement for looping.
+
+The while loop is one of the important looping construct, that is being widely used in C sharp programming language. To understand the concept of while loop, consider the following diagram.
+
+In the above example, three things are important.
+(i) Initialization
+(ii) Increment/Decrement
+(iii) Termination
+
+These are the important characteristics of any loop. Initialization represents the starting position from there your loop will be started. In the above example int i=0 refers to initialization of while loop. i++ refers to increment/decrement and finally while(i<10) refers to the termination of while loop.
+
+Each time the while loop executed, it checks for condition whether the value of i is less than 10 or not. If the value of i is less than 10, the loop will be executed and increment i by one and then print the value of i. When the value of i reaches 10, the while(i<10) condition becomes false and terminates the loop. To understand more clearly while loop, study the following example that print table of given number using while loop.
+Example:
+
+using System;
+
+namespace While_Loop
+{
+  class Program
+   {
+     static void Main(string[] args)
+      {
+        int num1,res, i;
+ 
+        Console.WriteLine("Enter a number");
+        num1 = Convert.ToInt32(Console.ReadLine());
+ 
+        i = 1; //Initialization
+
+        //Check whether condition matches or not
+        while (i <= 10)
+         {
+           res = num1 * i;
+           Console.WriteLine("{0} x {1} = {2}", num1, i,               res);
+           i++; //Increment by one
+         }
+        Console.ReadLine();           
+      }
+   }
+}
+
+
+
+
+Output
+
+ 
+
+Enter a number
+8
+8 x 1 = 8
+8 x 2 = 16
+8 x 3 = 24
+8 x 4 = 32
+8 x 5 = 40
+8 x 6 = 48
+8 x 7 = 56
+8 x 8 = 64
+8 x 9 = 72
+8 x 10 = 80
+
+Sometime, you don’t know the starting position of loop but want to execute some code in while loop. Or, you might want to run infinite loop that will be terminate with special character. In this situation, you can use while(true) as infinite loop.
+Example:
+
+
+using System;
+ 
+namespace while_true
+{
+  class Program
+   {
+     static void Main(string[] args)
+      {
+        int num,sum=0, res=0;
+        Console.WriteLine("Enter number to add. Press x for         Terminate the program");
+        while(true)
+         {
+           num=Convert.ToInt32(Console.ReadLine());
+           if (num == -1)
+            {
+              break;
+            }
+           sum=res;
+           res+=num;
+          Console.WriteLine("\n{0} + {1} = {2}", sum, num,            res);
+         }
+        Console.WriteLine("\n\nAborting... Press Enter.");
+        Console.ReadLine();
+      }
+   }
+}
+
+
+
+
+Output
+
+ 
+
+Enter number to add. Press -1 for Terminate the program
+6
+
+0 + 6 = 6
+5
+
+6 + 5 = 11
+4
+
+11 + 4 = 15
+3
+
+15 + 3 = 18
+2
+
+18 + 2 = 20
+1
+
+20 + 1 = 21
+-1
+
+
+Aborting...Press Enter.
+
+
+__________________________________________________________________________________________________________________________
+
+
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________

@@ -1,0 +1,53 @@
+create table lingaawibrant (EmployeeID int,Employeename varchar(255),Employeesalary int);
+
+insert into lingaawibrant(EmployeeID,Employeename,Employeesalary)
+values (1,'lingaa',258)
+
+
+
+
+
+create procedure sp_save
+(
+@EmployeeID int,
+@Employeename varchar(255),
+@Employeesalary int
+)
+as
+begin
+insert into lingaawibrant(EmployeeID,Employeename,Employeesalary)
+values(@EmployeeID,@Employeename,@Employeesalary)
+end
+
+
+
+
+create procedure sp_delete
+(@EmployeeID int)
+as 
+begin
+delete
+from lingaawibrant
+where (EmployeeID=@EmployeeID)
+end
+
+
+
+
+create procedure sp_grid
+as
+begin
+select * 
+  from lingaawibrant
+  end
+
+
+
+
+  
+ CREATE PROCEDURE sp_autoid
+AS
+BEGIN
+	SELECT isnull(MAX(EmployeeID), 0) + 1 AS EntityId
+	FROM lingaawibrant
+END

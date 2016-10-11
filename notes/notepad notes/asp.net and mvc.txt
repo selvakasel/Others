@@ -1,0 +1,811 @@
+
+                                                        ASP.NET
+                                                      
+
+
+
+ASP.NET 4 is a development framework for building web pages and web sites with HTML, CSS, JavaScript and server scripting.
+
+ASP.NET 4 supports three different development models:
+
+Web Pages, MVC (Model View Controller), and Web Forms:
+__________________________________________________________________________________________________________________________
+ASP.NET 5
+
+In 2015 Microsoft released ASP.NET 5.
+
+ASP.NET 5 is a significant redesign of ASP.NET.
+
+ASP.NET, MVC, and Web Pages are now merged into a single framework named MVC 6.
+
+It includes the following features:
+
+    Linux support
+    OSX support
+    Node.js support
+    AngularJS support
+    Tag Helpers
+    View Components
+    Web API
+    GruntJS support
+    Bower support
+    No Visual Basic
+    No Web Forms
+__________________________________________________________________________________________________________________________
+Classic ASP - Active Server Pages
+
+Active Server Pages (ASP), also known as Classic ASP, was introduced in 1998 as Microsoft's first server side scripting engine.
+
+ASP is a technology that enables scripts in web pages to be executed by an Internet server.
+
+ASP pages have the file extension .asp, and are normally written in VBScript.
+
+If you want to learn Classic ASP, visit our Classic ASP Tutorial.
+
+
+
+ASP.NET
+
+ASP.NET is a new ASP generation. It is not compatible with Classic ASP, but ASP.NET may include Classic ASP.
+
+ASP.NET pages are compiled, which makes them faster than Classic ASP.
+
+ASP.NET has better language support, a large set of user controls, XML-based components, and integrated user authentication.
+
+ASP.NET pages have the extension .aspx, and are normally written in VB (Visual Basic) or C# (C sharp).
+
+User controls in ASP.NET can be written in different languages, including C++ and Java.
+
+When a browser requests an ASP.NET file, the ASP.NET engine reads the file, compiles and executes the scripts in the file, and returns the result to the browser as plain HTML.
+
+
+
+
+ASP.NET Razor
+
+Razor is a new and simple markup syntax for embedding server code into ASP.NET web pages, much like Classic ASP.
+
+Razor has the power of traditional ASP.NET, but is easier to use and easier to learn.
+
+
+
+
+ASP.NET Programming Languages
+
+This tutorial covers the following programming languages:
+
+    Visual Basic (VB.NET)
+    C# (Pronounced C sharp)
+
+
+
+
+
+ASP.NET Server Technologies
+
+This tutorial covers the following server technologies:
+
+    Web Pages (with Razor syntax)
+    MVC (Model View Controller)
+    Web Forms (traditional ASP.NET)
+
+
+
+
+
+ASP.NET Development Tools
+
+ASP.NET supports the following development tools:
+
+    WebMatrix
+    Visual Web Developer
+    Visual Studio
+
+This tutorial uses WebMatrix for Web Pages, and Visual Web Developer for MVC and Web Forms.
+
+
+
+ASP.NET File Extensions
+
+    Classic ASP files have the file extension .asp
+    ASP.NET files have the file extension .aspx
+    ASP.NET files with Razor C# syntax have the file extension .cshtml
+    ASP.NET files with Razor VB syntax have the file extension .vbhtml
+
+
+__________________________________________________________________________________________________________________________
+The MVC Programming Model
+
+MVC is one of three ASP.NET programming models.
+
+MVC is a framework for building web applications using a MVC (Model View Controller) design:
+
+    The Model represents the application core (for instance a list of database records).
+    The View displays the data (the database records).
+    The Controller handles the input (to the database records).
+
+The MVC model also provides full control over HTML, CSS, and JavaScript.
+
+__________________________________________________________________________________________________________________________
+	
+
+The MVC model defines web
+applications with 3 logic layers:
+
+ 
+
+The business layer (Model logic)
+
+The display layer (View logic)
+
+The input control (Controller logic)
+__________________________________________________________________________________________________________________________
+Adding Styles
+
+The style sheet for the application is called Site.css. It is located in the Content folder.
+
+Open the file Site.css and swap the content with this:
+body
+{
+font: "Trebuchet MS", Verdana, sans-serif;
+background-color: #5c87b2;
+color: #696969;
+}
+h1
+{
+border-bottom: 3px solid #cc9900;
+font: Georgia, serif;
+color: #996600;
+}
+#main
+{
+padding: 20px;
+background-color: #ffffff;
+border-radius: 0 4px 4px 4px;
+}
+a
+{
+color: #034af3;
+}
+/* Menu Styles ------------------------------*/
+ul#menu
+{
+padding: 0px;
+position: relative;
+margin: 0;
+}
+ul#menu li
+{
+display: inline;
+}
+ul#menu li a
+{
+background-color: #e8eef4;
+padding: 10px 20px;
+text-decoration: none;
+line-height: 2.8em;
+/*CSS3 properties*/
+border-radius: 4px 4px 0 0;
+}
+ul#menu li a:hover
+{
+background-color: #ffffff;
+}
+/* Forms Styles ------------------------------*/
+fieldset
+{
+padding-left: 12px;
+}
+fieldset label
+{
+display: block;
+padding: 4px;
+}
+input[type="text"], input[type="password"]
+{
+width: 300px;
+}
+input[type="submit"]
+{
+padding: 4px;
+}
+/* Data Styles ------------------------------*/
+table.data
+{
+background-color:#ffffff;
+border:1px solid #c3c3c3;
+border-collapse:collapse;
+width:100%;
+}
+table.data th
+{
+background-color:#e8eef4;
+border:1px solid #c3c3c3;
+padding:3px;
+}
+table.data td
+{
+border:1px solid #c3c3c3;
+padding:3px;
+} 
+__________________________________________________________________________________________________________________________
+The Controllers Folder
+
+The Controllers Folder contains the controller classes responsible for handling user input and responses.
+
+MVC requires the name of all controllers to end with "Controller".
+
+In our example, Visual Web Developer has created the following files: HomeController.cs (for the Home and About pages) and AccountController.cs (For the Log On pages):
+
+Controllers
+
+Web servers will normally map incoming URL requests directly to disk files on the server. For example: a URL request like "http://www.w3schools.com/default.asp" will map directly to the file "default.asp" at the root directory of the server.
+
+The MVC framework maps differently. MVC maps URLs to methods. These methods are in classes called "Controllers".
+
+Controllers are responsible for processing incoming requests, handling input, saving data, and sending a response to send back to the client.
+__________________________________________________________________________________________________________________________
+The Home controller
+
+The controller file in our application HomeController.cs, defines the two controls Index and About.
+
+Swap the content of the HomeController.cs file with this:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace MvcDemo.Controllers
+{
+public class HomeController : Controller
+{
+public ActionResult Index()
+{return View();}
+
+public ActionResult About()
+{return View();}
+}
+}
+
+__________________________________________________________________________________________________________________________
+The Controller Views
+
+The files Index.cshtml and About.cshtml in the Views folder defines the ActionResult views Index() and About() in the controller.
+
+__________________________________________________________________________________________________________________________
+The Index File
+
+The file Index.cshtml represents the Home page of the application. It is the application's default file (index file).
+
+Put the following content in the file:
+@{ViewBag.Title = "Home Page";}
+
+<h1>Welcome to W3Schools</h1>
+
+<p>Put Home Page content here</p>
+
+__________________________________________________________________________________________________________________________
+The About File
+
+The file About.cshtml represent the About page of the application.
+
+Put the following content in the file:
+@{ViewBag.Title = "About Us";}
+
+<h1>About Us</h1>
+
+<p>Put About Us content here</p>
+
+__________________________________________________________________________________________________________________________
+MVC Models
+
+The MVC Model contains all application logic (business logic, validation logic, and data access logic), except pure view and controller logic.
+
+With MVC, models both hold and manipulate application data.
+__________________________________________________________________________________________________________________________
+The Models Folder
+
+The Models Folder contains the classes that represent the application model.
+
+Visual Web Developer automatically creates an AccountModels.cs file that contains the models for application security.
+
+AccountModels contains a LogOnModel, a ChangePasswordModel, and a RegisterModel.
+__________________________________________________________________________________________________________________________
+Adding a Database Model
+
+The database model needed for this tutorial can be created with these simple steps:
+
+    In the Solution Explorer, right-click the Models folder, and select Add and Class.
+    Name the class MovieDB.cs, and click Add.
+    Edit the class:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data.Entity;
+
+namespace MvcDemo.Models
+{
+public class MovieDB
+{
+public int ID { get; set; }
+public string Title { get; set; }
+public string Director { get; set; }
+public DateTime Date { get; set; }
+
+}
+public class MovieDBContext : DbContext
+{
+public DbSet<MovieDB> Movies { get; set; }
+}
+}
+
+Note:
+
+We have deliberately named the model class "MovieDB". In the previous chapter, you saw the name "MovieDBs" (ending with s) used for the database table. It looks strange, but this is the naming convention you have to use to make the model connect to the database table.
+
+__________________________________________________________________________________________________________________________
+Adding a Connection String
+
+Add the following element to the <connectionStrings> element in your Web.config file:
+<add name="MovieDBContext"
+connectionString="Data Source=|DataDirectory|\Movies.sdf"
+providerName="System.Data.SqlServerCe.4.0"/>
+
+__________________________________________________________________________________________________________________________
+MVC Application Security
+
+The Models Folder contains the classes that represent the application model.
+
+Visual Web Developer automatically creates an AccountModels.cs file that contains the models for application authentication.
+
+AccountModels contains a LogOnModel, a ChangePasswordModel, and a RegisterModel:
+__________________________________________________________________________________________________________________________
+The Change Password Model
+public class ChangePasswordModel
+{
+
+[Required]
+[DataType(DataType.Password)]
+[Display(Name = "Current password")]
+public string OldPassword { get; set; }
+
+[Required]
+[StringLength(100, ErrorMessage = "The {0} must be at least {2}      characters long.", MinimumLength = 6)]
+[DataType(DataType.Password)]
+[Display(Name = "New password")]
+public string NewPassword { get; set; }
+
+[DataType(DataType.Password)]
+[Display(Name = "Confirm new password")]
+[Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+public string ConfirmPassword { get; set; }
+
+}
+__________________________________________________________________________________________________________________________
+The Logon Model
+public class LogOnModel
+{
+
+[Required]
+[Display(Name = "User name")]
+public string UserName { get; set; }
+
+[Required]
+[DataType(DataType.Password)]
+[Display(Name = "Password")]
+public string Password { get; set; }
+
+[Display(Name = "Remember me?")]
+public bool RememberMe { get; set; }
+
+}
+
+__________________________________________________________________________________________________________________________
+The Register Model
+public class RegisterModel
+{
+
+[Required]
+[Display(Name = "User name")]
+public string UserName { get; set; }
+
+[Required]
+[DataType(DataType.EmailAddress)]
+[Display(Name = "Email address")]
+public string Email { get; set; }
+
+[Required]
+[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+[DataType(DataType.Password)]
+[Display(Name = "Password")]
+public string Password { get; set; }
+
+[DataType(DataType.Password)]
+[Display(Name = "Confirm password")]
+[Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+public string ConfirmPassword { get; set; }
+
+}
+__________________________________________________________________________________________________________________________
+HTML Helpers
+
+With MVC, HTML helpers are much like traditional ASP.NET Web Form controls.
+
+Just like web form controls in ASP.NET, HTML helpers are used to modify HTML. But HTML helpers are more lightweight. Unlike Web Form controls, an HTML helper does not have an event model and a view state.
+
+In most cases, an HTML helper is just a method that returns a string.
+
+With MVC, you can create your own helpers, or use the built in HTML helpers.
+__________________________________________________________________________________________________________________________
+Standard HTML Helpers
+
+MVC includes standard helpers for the most common types of HTML elements, like HTML links and HTML form elements.
+__________________________________________________________________________________________________________________________
+HTML Links
+
+The easiest way to render an HTML link in is to use the HTML.ActionLink() helper.
+
+With MVC, the Html.ActionLink() does not link to a view. It creates a link to a controller action.
+
+Razor Syntax:
+@Html.ActionLink("About this Website", "About")
+
+__________________________________________________________________________________________________________________________
+HTML Links
+
+The easiest way to render an HTML link in is to use the HTML.ActionLink() helper.
+
+With MVC, the Html.ActionLink() does not link to a view. It creates a link to a controller action.
+
+Razor Syntax:
+@Html.ActionLink("About this Website", "About")
+
+ASP Syntax:
+<%=Html.ActionLink("About this Website", "About")%>
+
+The first parameter is the link text, and the second parameter is the name of the controller action.
+
+The Html.ActionLink() helper above, outputs the following HTML:
+<a href="/Home/About">About this Website</a>
+
+The Html.ActionLink() helper has several properties:
+Property	Description
+.linkText	The link text (label)
+.actionName	The target action
+.routeValues	The values passed to the action
+.controllerName	The target controller
+.htmlAttributes	The set of attributes to the link
+.protocol	The link protocol
+.hostname	The host name for the link
+.fragment	The anchor target for the link
+
+Note: You can pass values to a controller action. For example, you can pass the id of a database record to a database edit action:
+
+Razor Syntax C#:
+@Html.ActionLink("Edit Record", "Edit", new {Id=3})
+
+Razor Syntax VB:
+@Html.ActionLink("Edit Record", "Edit", New With{.Id=3})
+
+The Html.ActionLink() helper above, outputs the following HTML:
+<a href="/Home/Edit/3">Edit Record</a>
+
+__________________________________________________________________________________________________________________________
+HTML Form Elements
+
+There following HTML helpers can be used to render (modify and output) HTML form elements:
+
+    BeginForm()
+    EndForm()
+    TextArea()
+    TextBox()
+    CheckBox()
+    RadioButton()
+    ListBox()
+    DropDownList()
+    Hidden()
+    Password()
+
+ASP.NET Syntax C#:
+<%= Html.ValidationSummary("Create was unsuccessful. Please correct the errors and try again.") %>
+<% using (Html.BeginForm()){%>
+<p>
+<label for="FirstName">First Name:</label>
+<%= Html.TextBox("FirstName") %>
+<%= Html.ValidationMessage("FirstName", "*") %>
+</p>
+<p>
+<label for="LastName">Last Name:</label>
+<%= Html.TextBox("LastName") %>
+<%= Html.ValidationMessage("LastName", "*") %>
+</p>
+<p>
+<label for="Password">Password:</label>
+<%= Html.Password("Password") %>
+<%= Html.ValidationMessage("Password", "*") %>
+</p>
+<p>
+<label for="Password">Confirm Password:</label>
+<%= Html.Password("ConfirmPassword") %>
+<%= Html.ValidationMessage("ConfirmPassword", "*") %>
+</p>
+<p>
+<label for="Profile">Profile:</label>
+<%= Html.TextArea("Profile", new {cols=60, rows=10})%>
+</p>
+<p>
+<%= Html.CheckBox("ReceiveNewsletter") %>
+<label for="ReceiveNewsletter" style="display:inline">Receive Newsletter?</label>
+</p>
+<p>
+<input type="submit" value="Register" />
+</p>
+<%}%>
+__________________________________________________________________________________________________________________________
+ASP.NET MVC - Publishing the Website
+
+
+
+« Previous
+Next Chapter »
+
+Learn how to publish an MVC application without using Visual Web Developer.
+Publish Your Application Without Using Visual Web Developer
+
+An ASP.NET MVC application can be published to a remote server by using the Publish commands in WebMatrix ,Visual Web Developer, or Visual Studio.
+
+This function copies all your application files, controllers, models, images, and all the required DLL files for MVC, Web Pages, Razor, Helpers, and SQL Server Compact (if a database is used).
+
+Sometimes you don't want to use this option. Maybe your hosting provider only supports FTP? Maybe you already have a web site based on classic ASP? Maybe you want to copy the files yourself? Maybe you want to use Front Page, Expression Web, or some other publishing software?
+
+Will you get a problem? Yes, you will. But you can solve it.
+
+To perform a web copy, you have to know how to include the right files, what DLL files to copy, and where store them.
+
+Follow these steps:
+1. Use the Latest Version of ASP.NET
+
+Before you continue, make sure your hosting computer runs the latest version of ASP.NET (4.0).
+2. Copy the Web Folders
+
+Copy your website (all folders and content) from your development computer to an application folder on your remote hosting computer (server).
+
+If your App_Data folder contains test data, don't copy the App_Data folder (see SQL Data below).
+3. Copy the DLL Files
+
+On the remote server create a bin folder in the root of your application. (If you have installed Helpers, you already have a bin folder)
+
+Copy everything from your folders:
+
+C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\Assemblies
+
+C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 3\Assemblies
+
+to your application's bin folder on the remote server.
+4. Copy the SQL Server Compact DLL Files
+
+If your application has a SQL Server Compact database (an .sdf file in App_Data folder), you must copy the SQL Server Compact DLL files:
+
+Copy everything from your folder:
+
+C:\Program Files (x86)\Microsoft SQL Server Compact Edition\v4.0\Private
+
+to your application's bin folder on the remote server.
+
+Create (or edit) the Web.config file for your application:
+Example C#
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<system.data>
+<DbProviderFactories>
+<remove invariant="System.Data.SqlServerCe.4.0" />
+
+<add invariant="System.Data.SqlServerCe.4.0"
+name="Microsoft SQL Server Compact 4.0"
+description=".NET Framework Data Provider for Microsoft SQL Server Compact" type="System.Data.SqlServerCe.SqlCeProviderFactory, System.Data.SqlServerCe, Version=4.0.0.1,Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+
+</DbProviderFactories>
+</system.data>
+</configuration>
+5. Copy SQL Server Compact Data
+
+Do you have .sdf files in your App_Data folder that contains test data?
+
+Do you want to publish the test data to the remote server?
+
+Most likely not.
+
+If you have to copy the SQL data files (.sdf files), you should delete everything in the database, and then copy the empty .sdf file from your development computer to the server.
+
+THAT'S IT. GOOD LUCK !
+
+__________________________________________________________________________________________________________________________
+The TextBox Control
+
+The TextBox control is used to create a text box where the user can input text.
+
+The example below demonstrates some of the attributes you may use with the TextBox control:
+Example
+<html>
+<body>
+
+<form runat="server">
+
+A basic TextBox:
+<asp:TextBox id="tb1" runat="server" />
+<br /><br />
+
+A password TextBox:
+<asp:TextBox id="tb2" TextMode="password" runat="server" />
+<br /><br />
+
+A TextBox with text:
+<asp:TextBox id="tb4" Text="Hello World!" runat="server" />
+<br /><br />
+
+A multiline TextBox:
+<asp:TextBox id="tb3" TextMode="multiline" runat="server" />
+<br /><br />
+
+A TextBox with height:
+<asp:TextBox id="tb6" rows="5" TextMode="multiline"
+runat="server" />
+<br /><br />
+
+A TextBox with width:
+<asp:TextBox id="tb5" columns="30" runat="server" />
+
+</form>
+
+</body>
+</html> 
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________
+
+__________________________________________________________________________________________________________________________

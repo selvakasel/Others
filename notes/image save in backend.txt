@@ -1,0 +1,65 @@
+Index:
+------
+
+*<div class="col-sm-4">
+    <form id="form1" runat="server" style="position: relative;right: 164px;">
+   <input type='file' id="imgInp" />
+   <img id="blah" src="#" alt="your image" class="img-responsive" style="position: relative;width: 133px;"/>
+</form>
+    </div>
+
+Controller:
+-----------
+
+* public string details(string data, string password, string place, string image)
+        {
+
+            Class1 s = new Class1();
+            s.name = data;
+            s.password = password;
+            s.place = place;
+
+            string a = image;
+            string b = a.Substring(0, 4);
+            string ss = "data";
+            if (image != "")
+            {
+                if (b == ss)
+                {
+
+                    string pattern = @"data:image/(gif|png|jpeg|jpg);base64,";
+                    string imgString = Regex.Replace(image, pattern, string.Empty);
+                    byte[] imageBytes = Convert.FromBase64CharArray(imgString.ToCharArray(), 0, imgString.Length);
+                    s.productimage = imageBytes;
+
+                }
+                else
+                {
+                    image = null;
+                }
+            }
+
+            SqlConnection con = null;
+            SqlCommand cmd = null;
+            using (con = new SqlConnection(connectionstring))
+            {
+                //try
+                //{
+                    con.Open();
+                    con.CreateCommand();
+                    using (cmd = new SqlCommand("nirrr", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter("name", s.name));
+                        cmd.Parameters.Add(new SqlParameter("password", s.password));
+                        cmd.Parameters.Add(new SqlParameter("place",s.place));
+                        cmd.Parameters.Add(new SqlParameter("picture", s.productimage));
+                        
+                        cmd.ExecuteNonQuery();
+                    }
+                    return "";
+
+Class:
+------
+
+* public byte[] productimage { get; set; }

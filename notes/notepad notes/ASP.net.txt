@@ -1,0 +1,665 @@
+-----------------------------------------ASP-----------------------------------
+-----------------------------------------ASP-----------------------------------
+-----------------------------------------ASP-----------------------------------
+-----------------------------------------ASP-----------------------------------
+-----------------------------------------ASP-----------------------------------
+-----------------------------------------ASP-----------------------------------
+
+
+
+1. What is ASP?
+
+Active Server Pages (ASP), also known as Classic ASP, is a Microsoft's server-side technology, which helps in creating dynamic and user-friendly Web pages. It uses different scripting languages to create dynamic Web pages, which can be run on any type of browser. The Web pages are built by using either VBScript or JavaScript and these Web pages have access to the same services as Windows application, including ADO (ActiveX Data Objects) for database access, SMTP (Simple Mail Transfer Protocol) for e-mail, and the entire COM (Component Object Model) structure used in the Windows environment. ASP is implemented through a dynamic-link library (asp.dll) that is called by the IIS server when a Web page is requested from the server.
+
+2. What is ASP.NET?
+
+ASP.NET is a specification developed by Microsoft to create dynamic Web applications, Web sites, and Web services. It is a part of .NET Framework. You can create ASP.NET applications in most of the .NET compatible languages, such as Visual Basic, C#, and J#. The ASP.NET compiles the Web pages and provides much better performance than scripting languages, such as VBScript. The Web Forms support to create powerful forms-based Web pages. You can use ASP.NET Web server controls to create interactive Web applications. With the help of Web server controls, you can easily create a Web application.
+
+3. What is the basic difference between ASP and ASP.NET?
+
+The basic difference between ASP and ASP.NET is that ASP is interpreted; whereas, ASP.NET is compiled. This implies that since ASP uses VBScript; therefore, when an ASP page is executed, it is interpreted. On the other hand, ASP.NET uses .NET languages, such as C# and VB.NET, which are compiled to Microsoft Intermediate Language (MSIL).
+
+4. In which event are the controls fully loaded?
+
+Page load event guarantees that all controls are fully loaded. Controls are also accessed in Page_Init events but you will see that view state is not fully loaded during this event
+
+5. How can we identify that the Page is Post Back?
+
+Page object has an "IsPostBack" property, which can be checked to know that is the page posted back.
+
+6. What is the lifespan for items stored in ViewState?
+
+The items stored in ViewState live until the lifetime of the current page expires including the postbacks to the same page.
+---------------------------------------
+7. How information about the user's locale can be accessed?
+
+The information regarding a user's locale can be accessed by using the System.Web.UI.Page.Culture property.
+
+8. What is the difference between SQL notification and SQL invalidation?
+
+The SQL cache notification generates notifications when the data of a database changes, on which your cache item depends. The SQL cache invalidation makes a cached item invalid when the data stored in a SQL server database changes.
+
+9. Which is the parent class of the Web server control?
+
+The System.Web.UI.Control class is the parent class for all Web server controls.
+
+10. Can you set which type of comparison you want to perform by the CompareValidator control?
+
+Yes, by setting the Operator property of the CompareValidator control.
+
+11. What is the behavior of a Web browser when it receives an invalid element?
+
+The behavior of a Web browser when it receives an invalid element depends on the browser that you use to browse your application. Most of the browsers ignore the invalid element; whereas, some of them display the invalid elements on the page.
+
+12. What are the advantages of the code-behind feature?
+
+The code-behind feature of ASP.NET offers a number of advantages:
+
+    Makes code easy to understand and debug by separating application logic from HTML tags
+    Provides the isolation of effort between graphic designers and software engineers
+    Removes the problems of browser incompatibility by providing code files to exist on the Web server and supporting Web pages to be compiled on demand. 
+----------------------------------------------------
+13. How do you sign out from forms authentication?
+
+The FormsAuthentication.Signout() method is used to sign out from the forms authentication.
+
+14. What is AutoPostBack?
+
+If you want a control to postback automatically when an event is raised, you need to set the AutoPostBack property of the control to True.
+
+15. What is the function of the ViewState property?
+
+The ASP.NET 4.0 introduced a new property called ViewStateMode for the Control class. Now you can enable the view state to an individual control even if the view state for an ASP.NET page is disabled.
+
+16. Why do you use the App_Code folder in ASP.NET?
+
+The App_Code folder is automatically present in the project. It stores the files, such as classes, typed data set, text files, and reports. If this folder is not available in the application, you can add this folder. One of the important features of the App_Code folder is that only one dll is created for the complete folder, irrespective of how many files it contains.
+
+17. Define a multilingual Web site.
+
+A multilingual Web site serves content in a number of languages. It contains multiple copies for its content and other resources, such as date and time, in different languages.
+
+18. What is an ASP.NET Web Form?
+
+ASP.NET Web forms are designed to use controls and features that are almost as powerful as the ones used with Windows forms, and so they are called as Web forms. The Web form uses a server-side object model that allows you to create functional controls, which are executed on the server and are rendered as HTML on the client. The attribute, runat="server", associated with a server control indicates that the Web form must be processed on the server.
+---------------------------------------------------------
+19. What is the difference between a default skin and a named skin?
+
+The default skin is applied to all the Web server controls in a Web form, which are of similar type, and it does not provide a Skin ID attribute. The named skin provides a Skin ID attribute and users have to set the Skin ID property to apply it.
+
+20. What is IIS? Why is it used?
+
+Internet Information Services (IIS) is created by Microsoft to provide Internet-based services to ASP.NET Web applications. It makes your computer to work as a Web server and provides the functionality to develop and deploy Web applications on the server. IIS handles the request and response cycle on the Web server. It also offers the services of SMTP and FrontPage server extensions. The SMTP is used to send emails and use FrontPage server extensions to get the dynamic features of IIS, such as form handler.
+
+21. What is Query String? What are its advantages and limitations?
+
+The Query String helps in sending the page information to the server.
+
+The Query String has the following advantages:
+
+    Every browser works with Query Strings.
+    It does not require server resources and so does not exert any kind of burden on the server. 
+
+
+The following are the limitations of Query String:
+
+    Information must be within the limit because URL does not support many characters.
+    Information is clearly visible to the user, which leads to security threats. 
+
+22. What is actually returned from server to the browser when a browser requests an .aspx file and the file is displayed?
+
+When a browser requests an .aspx file then the server returns a response, which is rendered into a HTML string.
+
+23. How can you display all validation messages in one control?
+
+The ValidationSummary control displays all validation messages in one control.
+
+24. Which two new properties are added in ASP.NET 4.0 Page class?
+
+The two new properties added in the Page class are MetaKeyword and MetaDescription.
+-----------------------------------------------
+25. What is tracing? Where is it used?
+
+Tracing displays the details about how the code was executed. It refers to collecting information about the application while it is running. Tracing information can help you to troubleshoot an application. It enables you to record information in various log files about the errors that might occur at run time. You can analyze these log files to find the cause of the errors.
+
+In .NET, we have objects called Trace Listeners. A listener is an object that gets the trace output and stores it to different places, such as a window, a file on your locale drive, or a SQL Server.
+
+The System.Diagnostics namespace contains the predefined interfaces, classes, and structures that are used for tracing. It supplies two classes, Trace and Debug, which allow you to write errors and logs related to the application execution. Trace listeners are objects that collect the output of tracing processes.
+
+26. What is the difference between authentication and authorization?
+
+Authentication verifies the identity of a user and authorization is a process where you can check whether or not the identity has access rights to the system. In other words, you can say that authentication is a procedure of getting some credentials from the users and verify the user's identity against those credentials. Authorization is a procedure of granting access of particular resources to an authenticated user. You should note that authentication always takes place before authorization.
+
+27. How can you register a custom server control to a Web page?
+
+You can register a custom server control to a Web page using the @Register directive.
+
+28. Which ASP.NET objects encapsulate the state of the client and the browser?
+
+The Session object encapsulates the state of the client and browser.
+
+29. Differentiate globalization and localization.
+
+The globalization is a technique to identify the specific part of a Web application that is different for different languages and make separate that portion from the core of the Web application. The localization is a procedure of configuring a Web application to be supported for a specific language or locale.
+
+30. What is ViewState?
+
+The ViewState is a feature used by ASP.NET Web page to store the value of a page and its controls just before posting the page. Once the page is posted, the first task by the page processing is to restore the ViewState to get the values of the controls.
+------------------------------------------
+31. Which method is used to force all the validation controls to run?
+
+The Page.Validate() method is used to force all the validation controls to run and to perform validation.
+
+32. Which method has been introduced in ASP.NET 4.0 to redirect a page permanently?
+
+The RedirectPermanent() method added in ASP.NET 4.0 to redirect a page permanently. The following code snippet is an example of the RedirectPermanent() method:
+
+RedirectPermanent("/path/Aboutus.aspx");
+
+33. How can you send an email message from an ASP.NET Web page?
+
+You can use the System.Net.Mail.MailMessage and the System.Net.Mail.SmtpMail classes to send an email in your Web pages. In order to send an email through your mail server, you need to create an object of the SmtpClient class and set the server name, port, and credentials.
+
+34. What is the difference between the Response.Write() and Response.Output.Write() methods?
+
+The Response.Write() method allows you to write the normal output; whereas, the Response.Output.Write() method allows you to write the formatted output.
+
+35. What does the Orientation property do in a Menu control?
+
+Orientation property of the Menu control sets the horizontal or vertical display of a menu on a Web page. By default, the orientation is vertical.
+
+36. Differentiate between client-side and server-side validations in Web pages.
+
+Client-side validations take place at the client end with the help of JavaScript and VBScript before the Web page is sent to the server. On the other hand, server-side validations take place at the server end.
+--------------------------------------------------------------------
+37. How does a content page differ from a master page?
+
+A content page does not have complete HTML source code; whereas a master page has complete HTML source code inside its source file.
+
+38. Suppose you want an ASP.NET function (client side) executed on the MouseOver event of a button. Where do you add an event handler?
+
+The event handler is added to the Add() method of the Attributes property.
+
+39. What is the default timeout for a Cookie?
+
+The default time duration for a Cookie is 30 minutes.
+
+40. What are HTTP handlers in ASP.NET?
+
+HTTP handlers, as the name suggests, are used to handle user requests for Web application resources. They are the backbone of the request-response model of Web applications. There is a specific event handler to handle the request for each user request type and send back the corresponding response object.
+
+Each user requests to the IIS Web server flows through the HTTP pipeline, which refers to a series of components (HTTP modules and HTTP handlers) to process the request. HTTP modules act as filters to process the request as it passes through the HTTP pipeline. The request, after passing through the HTTP modules, is assigned to an HTTP handler that determines the response of the server to the user request. The response then passes through the HTTP modules once again and is then sent back to the user.
+
+You can define HTTP handlers in the <httpHandlers> element of a configuration file. The <add> element tag is used to add new handlers and the <remove> element tag is used to remove existing handlers. To create an HTTP handler, you need to define a class that implements the IHttpHandler interface.
+
+41. What are the events that happen when a client requests an ASP.NET page from IIS server?
+
+The following events happen when a client requests an ASP.NET page from the IIS server:
+
+    User requests for an application resource.
+    The integrated request-processing pipeline receives the first user request.
+    Response objects are created for each user request.
+    An object of the HttpApplication class is created and allocated to the Request object.
+    The HttpApplication class processes the user request. 
+
+42. Explain file-based dependency and key-based dependency.
+
+In file-based dependency, you have to depend on a file that is saved in a disk. In key-based dependency, you have to depend on another cached item.
+-----------------------------------------------------
+37. How does a content page differ from a master page?
+
+A content page does not have complete HTML source code; whereas a master page has complete HTML source code inside its source file.
+
+38. Suppose you want an ASP.NET function (client side) executed on the MouseOver event of a button. Where do you add an event handler?
+
+The event handler is added to the Add() method of the Attributes property.
+
+39. What is the default timeout for a Cookie?
+
+The default time duration for a Cookie is 30 minutes.
+
+40. What are HTTP handlers in ASP.NET?
+
+HTTP handlers, as the name suggests, are used to handle user requests for Web application resources. They are the backbone of the request-response model of Web applications. There is a specific event handler to handle the request for each user request type and send back the corresponding response object.
+
+Each user requests to the IIS Web server flows through the HTTP pipeline, which refers to a series of components (HTTP modules and HTTP handlers) to process the request. HTTP modules act as filters to process the request as it passes through the HTTP pipeline. The request, after passing through the HTTP modules, is assigned to an HTTP handler that determines the response of the server to the user request. The response then passes through the HTTP modules once again and is then sent back to the user.
+
+You can define HTTP handlers in the <httpHandlers> element of a configuration file. The <add> element tag is used to add new handlers and the <remove> element tag is used to remove existing handlers. To create an HTTP handler, you need to define a class that implements the IHttpHandler interface.
+
+41. What are the events that happen when a client requests an ASP.NET page from IIS server?
+
+The following events happen when a client requests an ASP.NET page from the IIS server:
+
+    User requests for an application resource.
+    The integrated request-processing pipeline receives the first user request.
+    Response objects are created for each user request.
+    An object of the HttpApplication class is created and allocated to the Request object.
+    The HttpApplication class processes the user request. 
+
+42. Explain file-based dependency and key-based dependency.
+
+In file-based dependency, you have to depend on a file that is saved in a disk. In key-based dependency, you have to depend on another cached item.
+-----------------------------------------------------------
+49. What is the difference between page-level caching and fragment caching?
+
+In the page-level caching, an entire Web page is cached; whereas, in the fragment caching, a part of the Web page, such as a user control added to the Web page, is cached.
+
+50. Make a list of all templates of the Repeater control.
+
+The Repeater control contains the following templates:
+
+    ItemTemplate
+    AlternatingltemTemplate
+    SeparatorTemplate
+    HeaderTemplate
+    FooterTemplate 
+
+51. Describe the complete lifecycle of a Web page.
+
+When we execute a Web page, it passes from the following stages, which are collectively known as Web page lifecycle:
+
+    Page request - During this stage, ASP.NET makes sure the page either parsed or compiled and a cached version of the page can be sent in response
+    Start - During this stage sets the Request and Response page properties and the page check the page request is either a postback or a new request
+    Page Initialization - During this stage, the page initialize and the control's Unique Id property are set
+    Load - During this stage, if the request is postback, the control properties are loaded without loading the view state and control state otherwise loads the view state
+    Validation - During this stage, the controls are validated
+    Postback event handling - During this stage, if the request is a postback, handles the event
+    Rendering - During this stage, the page invokes the Render method to each control for return the output
+    Unload - During this stage, when the page is completely rendered and sent to the client, the page is unloaded. 
+
+52. How can you assign page specific attributes in an ASP.NET application?
+
+The @Page directive is responsible for this.
+
+53. Which method is used to post a Web page to another Web page?
+
+The Respose.Redirect method is used to post a page to another page, as shown in the following code snippet: Response.Redirect("DestinationPageName.aspx");
+
+54. What is a Cookie? Where is it used in ASP.NET?
+
+Cookie is a lightweight executable program, which the server posts to client machines. Cookies store the identity of a user at the first visit of the Web site and validate them later on the next visits for their authenticity. The values of a cookie can be transferred between the user's request and the server's response.
+---------------------------------------------------------------
+55. What are Custom User Controls in ASP.NET?
+
+The custom user controls are the controls that are defined by developers. These controls are a mixture of custom behavior and predefined behavior. These controls work similar to other Web server controls.
+
+56. What does the .WebPart file do?
+
+The .WebPart file explains the settings of a Web Parts control that can be included to a specified zone on a Web page.
+
+57. How can you enable impersonation in the web.config file?
+
+To enable impersonation in the web.confing file, you need to include the <identity> element in the web.config file and set the impersonate attribute to true as shown in the following code snippet:
+<identity impersonate = "true" />
+
+58. How can you identify that the page is PostBack?
+
+The Page object uses the IsPostBack property to check whether the page is posted back or not. If the page is postback, this property is set to true.
+
+59. In which database is the information, such as membership, role management, profile, and Web parts personalization, stored?
+
+The aspnetdb database stores all information.
+
+60. What is State Management? How many ways are there to maintain a state in .NET?
+
+State management is used to store information requests. The state management is used to trace the information or data that affect the state of the applications.
+
+There are two ways to maintain a state in .NET, Client-Based state management and Server-Based state management.
+
+The following techniques can be used to implement the Client-Based state management:
+
+    View State
+    Hidden Fields
+    Cookies
+    Query Strings
+    Control State 
+
+
+The following techniques can be used to implement Server-Based state management:
+
+    Application State
+    Session State
+    Profile Properties 
+---------------------------------------------------------
+61. What do you understand by aggregate dependency?
+
+Aggregate dependency allows multiple dependencies to be aggregated for content that depends on more than one resource. In such type of dependency, you need to depend on the sum of all the defined dependencies to remove a data item from the cache.
+
+62. How can you ensure that no one has tampered with ViewState in a Web page?
+
+To ensure that no one has tampered with ViewState in a Web page, set the EnableViewStateMac property to True.
+
+63. What is the difference between adding items into cache through the Add() method and through the Insert() method?
+
+Both methods work in a similar way except that the Cache.Add() function returns an object that represents the item you added in the cache. The Cache.Insert() function can replace an existing item in the cache, which is not possible using the Cache.Add() method.
+
+64. Explain the cookie less session and its working.
+
+ASP.NET manages the session state in the same process that processes the request and does not create a cookie. It is known as a cookie less session. If cookies are not available, a session is tracked by adding a session identifier to the URL. The cookie less session is enabled using the following code snippet: <sessionState cookieless="true" />
+
+65. What is a round trip?
+
+The trip of a Web page from the client to the server and then back to the client is known as a round trip.
+
+66. What are the major built-in objects in ASP.NET?
+
+The major built-in objects in ASP.NET are as follows:
+
+    Application
+    Request
+    Response
+    Server
+    Session
+    Context
+    Trace 
+---------------------------------------------------
+67. Where should the data validations be performed-at the client side or at the server side and why?
+
+Data validations should be done primarily at the client side and the server-side validation should be avoided because it makes server task overloaded. If the client-side validation is not available, you can use server-side validation. When a user sends a request to the server, the validation controls are invoked to check the user input one by one.
+
+68. Why do we need nested master pages in a Web site?
+
+When we have several hierarchical levels in a Web site, then we use nested master pages in the Web site.
+
+69. How can you dynamically add user controls to a page?
+
+User controls can be dynamically loaded by adding a Web User Control page in the application and adding the control on this page.
+
+70. What is the appSettings Section in the web.config file?
+
+The web.config file sets the configuration for a Web project. The appSettings block in configuration file sets the user-defined values for the whole application.
+
+For example, in the following code snippet, the specified ConnectionString section is used throughout the project for database connection:
+
+<configuration>
+<appSettings>
+<add key="ConnectionString" value="server=indiabixserver; pwd=dbpassword; database=indiabix" />
+</appSettings>
+...
+
+71. What type of code, client-side or server-side, is found in a code-behind file of a Web page?
+
+A code-behind file contains the server-side code, which means that the code contained in a code-behind file is executed at the server.
+
+72. To which class a Web form belongs to in the .NET Framework class hierarchy?
+
+A Web form belongs to the System.Web.UI.Page class.
+---------------------------------------------------
+73. What does the "EnableViewState" property do? Why do we want it On or Off?
+
+The EnableViewState property enables the ViewState property on the page. It is set to On to allow the page to save the users input between postback requests of a Web page; that is, between the Request and corresponding Response objects. When this property is set to Off, the page does not store the users input during postback.
+
+74. Which event determines that all the controls are completely loaded into memory?
+
+The Page_Load event determines that all the controls on the page are fully loaded. You can also access the controls in the Page_Init event; however, the ViewState property does not load completely during this event.
+
+75. What is the function of the CustomValidator control?
+
+It provides the customize validation code to perform both client-side and server-side validation.
+
+76. What is Role-based security?
+
+In the Role-based security, you can assign a role to every user and grant the privilege according to that role. A role is a group of principal that restricts a user's privileges. Therefore, all the organization and applications use role-based security model to determine whether a user has enough privileges to perform a requested task.
+
+77. Which data type does the RangeValidator control support?
+
+The data types supported by the RangeValidator control are Integer, Double, String, Currency, and Date.
+
+78. What are the HTML server controls in ASP.NET?
+
+HTML server controls are similar to the standard HTML elements, which are normally used in HTML pages. They expose properties and events that can be used programmatically. To make these controls programmatically accessible, you need to specify that the HTML controls act as a server control by adding the runat="server" attribute.
+-----------------------------------------------
+79. Why a SiteMapPath control is referred to as breadcrumb or eyebrow navigation control?
+
+The SiteMapPath control displays a hierarchical path to the root Web page of the Web site. Therefore, it is known as the breadcrumb or eyebrow navigation control.
+
+80. Where is the ViewState information stored?
+
+The ViewState information is stored in the HTML hidden fields.
+
+81. Which namespaces are necessary to create a localized application?
+
+The System.Globalization and System.Resources namespaces are essential to develop a localized application.
+
+82. What is the difference between an HtmlInputCheckBox control and an HtmlInputRadioButton control?
+
+You can select more than one HtmlInputCheckBox control from a group of HtmlInputCheckBox controls; whereas, you can select only a single HtmllnputRadioButton control from a group of HtmlInputRadioButton controls.
+
+83. What is the difference between HTML and Web server controls?
+
+HTML controls are client-side controls; therefore, all the validations for HTML controls are performed at the client side. On the other hand, Web server controls are server-side controls; therefore, all the validations for Web server controls are performed at the server side.
+
+84. Explain the AdRotator Control.
+
+The AdRotator is an ASP.NET control that is used to provide advertisements to Web pages. The AdRotator control associates with one or many advertisements, which randomly displays one by one at a time when the Web page is refreshed. The AdRotator control advertisements are associated with links; therefore, when you click on an advertisement, it redirects you to other pages.
+
+The AdRotator control is associated with a data source, which is normally an xml file or a database table. A data source contains all the information, such as advertisement graphics reference, link, and alternate text. Therefore, when you use the AdRotator control, you should first create a data source and then associate it with the AdRotator control.
+----------------------------------------------------------------
+85. What do you understand by the culture?
+
+The culture denotes a combination of a language and optionally a region or a country. The contents of a Web page of a multilingual Web site are changed according to the culture defined in the operating system of the user accessing the Web page.
+
+86. What is the difference between absolute expiration and sliding-time expiration?
+
+The absolute expiration expires a cached item after the provided expiration time. The sliding time does not expire the cached items because it increments the specified time.
+
+87. What is the code-behind feature in ASP.NET?
+
+The code-behind feature of ASP.NET enables you to divide an ASP.NET page into two files - one consisting of the presentation data, and the second, which is also called the code-behind file, consisting of all the business logic. The presentation data contains the interface elements, such as HTML controls and Web server controls, and the code-behind contains the event-handling process to handle the events that are fired by these controls. The file that contains the presentation data has the .aspx extension. The code behind file has either the .cs extension (if you are using the programming language C#) or the .vb (if you are using the programming language Visual Basic .NET) extension.
+
+88. How can you check if all the validation controls on a Web page are valid and proper?
+
+You can determine that all the validation controls on a Web page are properly working by writing code in the source file of the Web page using a scripting language, such as VBScript or JavaScript. To do this task, you have to loop across validators collection of pages and check the IsValid property of each validation control on the Web page to check whether or not the validation test is successful.
+
+89. Explain the validation controls. How many validation controls in ASP.NET 4.0?
+
+Validation controls are responsible to validate the data of an input control. Whenever you provide any input to an application, it performs the validation and displays an error message to user, in case the validation fails.
+
+ASP.NET 4.0 contains the following six types of validation controls:
+
+    CompareValidator - Performs a comparison between the values contained in two controls.
+    CustomValidator - Writes your own method to perform extra validation.
+    RangeValidator- Checks value according to the range of value.
+    RegularExpressionValidator - Ensures that input is according to the specified pattern or not.
+    RequiredFieldValidator - Checks either a control is empty or not.
+    ValidationSummary - Displays a summary of all validation error in a central location. 
+
+90. What is difference between a Label control and a Literal control?
+
+The Label control's final html code has an HTML tag; whereas, the Literal control's final html code contains only text, which is not surrounded by any HTML tag.
+----------------------------------------------------------------
+91. How many types of Cookies are available in ASP.NET?
+
+There are two types of Cookies available in ASP.NET:
+
+    Session Cookie - Resides on the client machine for a single session until the user does not log out.
+    Persistent Cookie - Resides on a user's machine for a period specified for its expiry, such as 10 days, one month, and never. 
+
+
+The user can set this period manually.
+
+92. What is the use of the Global.asax file?
+
+The Global.asax file executes application-level events and sets application-level variables.
+
+93. What are the Culture and UICulture values?
+
+The Culture value determines the functions, such as Date and Currency, which are used to format data and numbers in a Web page. The UICulture value determines the resources, such as strings or images, which are loaded for a Web page in a Web application.
+
+94. What is the difference between ASP session and ASP.NET session?
+
+ASP does not support cookie-less sessions; whereas, ASP.NET does. In addition, the ASP.NET session can span across multiple servers.
+
+95. Which control will you use to ensure that the values in two different controls match?
+
+You should use the CompareValidator control to ensure that the values in two different controls match.
+
+96. What is the difference between a page theme and a global theme?
+
+A page theme is stored inside a subfolder of the App_Themes folder of a project and applied to individual Web pages of that project. Global themes are stored inside the Themes folder on a Web server and apply to all the Web applications on the Web server.
+---------------------------------------------------------
+97. What do you mean by a neutral culture?
+
+When you specify a language but do not specify the associated country through a culture, the culture is called as a neutral culture.
+
+98. What is the use of the <sessionState> tag in the web.config file?
+
+The <sessionState> tag is used to configure the session state features. To change the default timeout, which is 20 minutes, you have to add the following code snippet to the web.config file of an application: <sessionState timeout="40"/>
+
+99. Can you post and access view state in another application?
+
+Yes, you can post and access a view state in other applications. However, while posting a view state in another application, the PreviousPage property returns null.
+
+100. Which method do you use to kill explicitly a users session?
+
+The Session.Abandon() method kills the user session explicitly.
+
+101. Which class is inherited when an ASP.NET server control is added to a Web form?
+
+The System.Web.UI.WebControls class is inherited when an ASP.NET server control is added to a Web form.
+
+102. What events are fired when a page loads?
+
+The following events fire when a page loads:
+
+    Init() - Fires when the page is initializing.
+    LoadViewState() - Fires when the view state is loading.
+    LoadPostData() - Fires when the postback data is processing.
+    Load() - Fires when the page is loading.
+    PreRender() - Fires at the brief moment before the page is displayed to the user as HTML.
+    Unload() - Fires when the page is destroying the instances of server controls. 
+------------------------------------------------------------
+103. Write three common properties of all validation controls.
+
+Three common properties of validation controls are as follows:
+
+    ControlToValidate - Provides a control to validate
+    ErrorMessage - Displays an error message
+    IsValid - Specifies if the control's validation has succeeded or not
+    Text - Displays a text for validation control before validation 
+
+104. What are navigation controls? How many navigation controls are there in ASP.NET 4.0?
+
+Navigation controls help you to navigate in a Web application easily. These controls store all the links in a hierarchical or drop-down structure; thereby facilitating easy navigation in a Web application.
+
+There are three navigation controls in ASP.Net 4.0.
+
+    SiteMapPath
+    Menu
+    TreeView 
+
+105. What happens if an ASP.NET server control with event-handling routines is missing from its definition?
+
+The compilation of the application fails.
+
+106. What are server-side comments?
+
+Server-side comments are included in an ASP.NET page for the purpose of documentations as shown in the following code snippet:
+
+<%--This is an example of server-side comments --%>
+
+The server-side comments begin with <%-- and end with --%>.
+
+107. How can we provide the WebParts control functionality to a server control?
+
+We can provide the WebParts controls functionality to a server control by setting the CreateWebPart property of WebPartManger.
+
+108. How do you prevent a validation control from validating data at the client end?
+
+You can prohibit a validation control to validate data at the client side by setting the EnableClientScript property to False.
+--------------------------------------------------------------------
+109. What is cross-page posting in ASP.NET?
+
+The Server.Transfer() method is used to post data from one page to another. In this case, the URL remains the same. However, in cross page posting, data is collected from different Web pages and is displayed on a single page. To do so, you need to set the PostBackUrl property of the control, which specifies the target page. In the target page, you can access the PreviousPage property. For this, you need to use the @PreviousPageType directive. You can access the controls of previous page by using the FindControl() method.
+
+110. Which ASP.NET configuration options are supported in the ASP.NET implementation on the shared Web hosting platform?
+
+There are many ASP.NET configuration choices, which are not able to configure at the site, application, or child directory level on the shared hosting environment. Some options can produce security, performance, and stability problem to the server and therefore cannot be changed.
+
+The following settings are the only ones that can be changed in the web.config file(s) of your Web site:
+
+    browserCaps
+    clientTarget
+    pages
+    customErrors
+    globalization
+    authorization
+    authentication
+    webControls
+    webServices 
+
+111. Explain the Application and Session objects in ASP.NET.
+
+Application state is used to store data corresponding to all the variables of an ASP.NET Web application. The data in an application state is stored once and read several times. Application state uses the HttpApplicationState class to store and share the data throughout the application. You can access the information stored in an application state by using the HttpApplication class property. Data stored in the application state is accessible to all the pages of the application and is the same for all the users accessing the application. The HttpApplicationState class provides a lock method, which you can use to ensure that only one user is able to access and modify the data of an application at any instant of time.
+
+Each client accessing a Web application maintains a distinct session with the Web server, and there is also some specific information associated with each of these sessions. Session state is defined in the <sessionState> element of the web.config file. It also stores the data specific to a user session in session variables. Different session variables are created for each user session. In addition, session variables can be accessed from any page of the application. When a user accesses a page, a session ID for the user is created. The session ID is transferred between the server and the client over the HTTP protocol using cookies.
+
+112. How will you differentiate a submaster page from a top-level master page?
+
+Similar to a content page, a submaster page also does not have complete HTML source code; whereas, a top-level master page has complete HTML source code inside its source file.
+
+113. What are Web server controls in ASP.NET?
+
+The ASP.NET Web server controls are objects on the ASP.NET pages that run when the Web page is requested. Many Web server controls, such as button and text box, are similar to the HTML controls. In addition to the HTML controls, there are many controls, which include complex behavior, such as the controls used to connect to data sources and display data.
+
+114. What is the difference between a HyperLink control and a LinkButton control?
+
+A HyperLink control does not have the Click and Command events; whereas, the LinkButton control has these events, which can be handled in the code-behind file of the Web page.
+------------------------------------------------------------------
+115. What are the various ways of authentication techniques in ASP.NET?
+
+There are various techniques in ASP.NET to authenticate a user. You can use one of the following ways of authentication to select a built-in authentication provider:
+
+    Windows Authentication - This mode works as the default authentication technique. It can work with any form of Microsoft Internet Information Services (IIS) authentication, such as Basic, Integrated Windows authentication (NTLM/Kerberos), Digest, and certificates. The syntax of Windows authentication mode is given as follows: <authentication mode="windows" />
+    Forms Authentication - You can specify this mode as a default authentication mode by using the following code snippet: <authentication mode="Forms"/>
+    Passport - This mode works with Microsoft Passport authentication, as shown in the following code snippet: <authentication mode = "Passport"/> 
+
+116. What are the different ways to send data across pages in ASP.NET?
+
+The following two ways are used to send data across pages in ASP.NET:
+
+    Session
+    Public properties 
+
+117. What does the WebpartListUserControlPath property of a DeclarativeCatalogPart control do?
+
+The WebpartListUserControlPath property sets the route of the user defined control to a DeclarativeCatalogPart control.
+
+118. What do you mean by the Web Part controls in ASP.NET?
+
+The Web Part controls are the integrated controls, which are used to create a Web site. These controls allow the users to change the content, outlook, and state of Web pages in a Web browser.
+
+119. What type of the CatalogPart control enables users to restore the Web Parts that have been removed earlier by the user?
+
+The PageCatalogPart control.
+
+120. What is the use of web.config? What is the difference between machine.config and web.config?
+
+ASP.NET configuration files are XML-based text files for application-level settings and are saved with the name web.config. These files are present in multiple directories on an ASP.NET Web application server. The web.config file sets the configuration settings to the directory it is placed in and to all the virtual sub folders under it. The settings in sub directories can optionally override or change the settings specified in the base directory.
+
+The difference between the web.config and machine.config files is given as follows:
+
+    <WinDir>\Microsoft.NET\Framework\<version>\config\machine.config provides default configuration settings for the entire machine. ASP.NET configures IIS to prohibit the browser directly from accessing the web.config files to make sure that their values cannot be public. Attempts to access those files cause ASP.NET to return the 403: Access Forbidden error.
+    ASP.NET uses these web.config configuration files at runtime to compute hierarchically a sole collection of settings for every URL target request. These settings compute only once and cached across further requests. ASP.NET automatically checks for changing file settings and do not validate the cache if any of the configuration changes made. 
+------------------------------------------------------------
+121. Explain the concept of states in ASP.NET.
+
+State is quite an innovative concept in Web development because it eliminates the drawback of losing state data due to reloading of a Web page. By using states in a Web application, you can preserve the state of the application either at the server or client end. The state of a Web application helps you to store the runtime changes that have been made to the Web application. For example, as already described earlier, a change in the data source of the Web application might be initiated by a user when he/she selects and saves some products in the shopping cart.
+
+If you are not using states, these changes are discarded and are not saved. You may think that the whole concept of storing states is optional. However, under certain circumstances, using states with applications is imperative. For example, it is necessary to store states for Web applications, such as an e-commerce shopping site or an Intranet site of a company, to keep track of the requests of the users for the items they have selected on the shopping site or the days requested for vacation on the Intranet site.
+
+122. Can we validate a DropDownList by RequiredFieldValidator?
+
+Yes, we can validate a DropDownList by RequiredFieldValidator. To perform this validation, we have to set the InitialValue property of RequiredFieldValidator control.
+
+123. List the features of the Chart control.
+
+The following are the features of the Chart control:
+
+    Bounds a chart with any data source.
+    Simple manipulation of chart data, such as copying, merging, grouping, sorting, searching, and filtering.
+    Support many statistical and financial formulas for data analysis.
+    Provide advanced chart outlook, such as 2-D, 3-D, lighting, and perspective.
+    Support events and customizations.
+    Includes interactivity with Microsoft AJAX.
+    Supports AJAX Content Delivery Network (CDN). 

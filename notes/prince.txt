@@ -1,0 +1,81 @@
+E-Mail validation:
+------------------
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#btn").click(function () {
+//                alert();
+                var sa = $("#text").val();
+                if ($.trim(sa).length == 0) {
+                    alert('please enter e-mail');
+                    return false;
+                }
+                if (validateemail(sa)) {
+                    alert('valid e-mail');
+                    return true;
+                }
+                else {
+                    alert('invalid e-mail');
+                    return false;
+                }
+            });
+        });
+        function validateemail(sa) { 
+         var filter = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        if(filter.test(sa)){
+         return true;
+        }
+        else{
+        return false;
+        }
+        }
+        
+        
+    </script>
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+Mobile Number Validation:
+-------------------------
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btn").click(function () {
+            var nir = $("#text").val();
+            if ($.trim(nir).length == 0) {
+                alert('enter phone number');
+                return false;
+            }
+            if ($.trim(nir).length<10) {
+                alert('enter proper phone number');
+                return false;
+            }
+            if (validatephone(nir)) {
+                alert('valid number');
+                return true;
+            }
+            else {
+                alert('invalid number');
+                return false;
+            }
+        });
+    });
+    function validatephone(nir) {
+        //alert(1);
+        var filter = /^[0-9-+]+$/;
+        if (filter.test(nir)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+  
+
+
+
+</script>
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+

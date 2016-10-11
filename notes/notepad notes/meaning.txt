@@ -1,0 +1,12 @@
+1..What is a Delegate?
+
+Delegate is a type which  holds the method(s) reference in an object. It is also referred to as a type safe function pointer.
+
+
+
+Advantages
+
+    Encapsulating the method's call from caller
+    Effective use of delegate improves the performance of application
+    Used to call a method asynchronously
+__________________________________________________________________________________________________________________________

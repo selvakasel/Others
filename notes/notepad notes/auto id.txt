@@ -1,0 +1,73 @@
+ public List<main> autoid()
+        {
+            Int64 entityid = 0;
+            main d = new main();
+            List<main> lst = new List<main>();
+            SqlConnection conn = new SqlConnection();
+            SqlCommand cmd = null;
+            SqlDataReader dr=null;
+
+
+            using (con = new SqlConnection(Connectoinstring))
+            {
+                con.Open();
+                cmd = conn.CreateCommand();
+                using (cmd = new SqlCommand("aut7f7", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        main obj = new main();
+                        entityid = Convert.ToInt16(dr["EntityId"]);
+                        lst.Add(obj);
+                    }
+
+                    dr.Close();
+
+                }
+
+            } return lst;
+
+        }
+
+
+
+
+
+
+
+
+ public ActionResult Index()
+        {
+
+            ViewData["AutoId"] = autoid();
+            return View();
+
+        }
+
+
+
+
+ CREATE PROCEDURE aut7f7
+AS
+BEGIN
+	SELECT isnull(MAX(id), 0) + 1 AS EntityId
+	FROM savee55
+END
+
+
+
+
+<input type="text" value = "@AutoId" class="form-control" id="id" /><br /><br />
+
+
+
+
+@{
+    var AutoID = Convert.ToInt64(ViewData["AutoID"]);
+    
+    }
+
+
+

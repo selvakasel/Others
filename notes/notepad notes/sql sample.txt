@@ -1,0 +1,100 @@
+
+
+TABLE
+------
+CREATE TABLE [dbo].[DocumentContact](
+	[docconID] [bigint] IDENTITY(1,1) NOT NULL,
+	[FileID] [bigint] NULL,
+	[ContactId] [bigint] NULL,
+	[Activeflag] [tinyint] NULL,
+	[CreatedBy] [bigint] NULL,
+	[ClientId] [bigint] NULL,
+	[CreatedDate] [datetime] NULL,
+ CONSTRAINT [PK_DocumentContact] PRIMARY KEY CLUSTERED 
+
+
+
+
+STORED PROCEDURE
+----------------
+CREATE PROCEDURE [dbo].[sp_DocumentContact_Insert] (
+	@IsSave BIT
+	,@docconID BIGINT
+	,@FileID BIGINT
+	,@ContactId BIGINT
+	--,@Activeflag tinyint
+	,@ClientId BIGINT
+	,@CreatedBy BIGINT
+	,@@guid AS BIGINT OUTPUT
+	)
+AS
+BEGIN
+	DECLARE @ErrorMessage NVARCHAR(4000);
+	DECLARE @ErrorSeverity INT;
+	DECLARE @ErrorState INT;
+	DECLARE @Documentautoid BIGINT;
+
+	set @Documentautoid =  (select ISNULL(max(docconID),0)+1 from Documentcontact)
+
+	SET NOCOUNT ON;
+
+	BEGIN TRY
+		IF (@IsSave = 1)
+		BEGIN
+			INSERT INTO Documentcontact (
+			     docconID
+				,FileID
+				,ContactId
+				,ActiveFlag
+				,ClientId
+				,CreatedBy
+				,CreatedDate
+				)
+			VALUES (
+			     @Documentautoid
+				,@FileID
+				,@ContactId
+				,1
+				,@ClientId
+				,@CreatedBy
+				,GETDATE()
+				)
+
+			SET @@guid = @Documentautoid
+		END
+		ELSE
+		BEGIN
+			UPDATE Documentcontact
+			SET FileID = @FileID
+				,ContactId = @ContactId
+				,ActiveFlag = 1
+				,ClientId = @ClientId
+				,CreatedBy = @CreatedBy
+				,CreatedDate = GETDATE()
+			WHERE docconID = @docconID
+		END
+	END TRY
+
+	BEGIN CATCH
+		SELECT @ErrorMessage = error_message()
+			,@ErrorSeverity = 11
+			,@ErrorState = ERROR_STATE();
+
+		RAISERROR (
+				@ErrorMessage
+				,@ErrorSeverity
+				,1
+				);
+	END CATCH
+END
+----------------
+sql grid
+
+
+
+create procedure sp_tablert
+as
+begin
+select * 
+  from wibrantlingaa
+  end

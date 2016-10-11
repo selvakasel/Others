@@ -1,0 +1,425 @@
+Keydown(function):
+------------------
+*the key is pressed on its way.
+
+            EX:
+            ---
+          $("input").keydown(function(){
+        $("input").css("background-color", "yellow");
+    });
+    $("input").keyup(function(){
+        $("input").css("background-color", "pink");
+    });
+
+In keydown function placed in back ground colour when type any letter that only function occurs after that back ground colour change to pink.
+
+
+Keyup(function):
+----------------
+*The key is released after function occurs.
+            EX:
+            ---
+      In letter uppercase function the keyup function is occurs after typed text the back ground colour is changed to pink.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+AJAX:
+-----
+post:(Loading simple data)
+-----
+*parameters to be passed to the request. If specified, the request is made using the POST method. If omitted, the GET method is used.
+
+json:(Getting json data)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+MVC life cycle:
+---------------
+1)routing-url match
+2)MVC handler-run
+3)controller-MvcHandler uses the IControllerFactory instance and tries to get a IController instance. If successful, the Execute method is called.
+4)Action Execution-action name select(json,etc)
+5)view result-The action method receives user input, prepares the appropriate response data, and then executes the result by returning a result type. The result type can be ViewResult, RedirectToRouteResult, RedirectResult, ContentResult, JsonResult, FileResult, and EmptyResult.
+6)View engine-in view we use razor and asp coding in this use which type we do
+7)view-user view
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+view data and view bag:
+-----------------------
+
+*Similarities between ViewBag & ViewData:
+
+Helps to maintain data when you move from controller to view.
+Used to pass data from controller to corresponding view.
+Short life means value becomes null when redirection occurs. This is because their goal is to provide a way to communicate between controllers and views. It’s a communication mechanism within the server call.
+
+*Difference between ViewBag & ViewData:
+
+ViewData is a dictionary of objects that is derived from ViewDataDictionary class and is accessible using strings as keys.
+ViewBag is a dynamic property that takes advantage of the new dynamic features in C# 4.0.
+ViewData requires typecasting for complex data type and check for null values to avoid error.
+ViewBag doesn’t require typecasting for complex data type.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+how to set img in product:
+--------------------------
+
+<div class="row">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label>
+                                Product Image</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="right-inner-addon ">
+                                <img class="center-block img-rounded img-responsive" id="sampleimg" src="../Content/libs/images/product_icon1.png"
+                                    style="border: 2px solid gainsboro; width: 50%; height: 100%;" />
+                                <i class="fa fa-star" style="color: red; font-size: 80%"></i>
+                                <input type="file" class="form-control" id="txtEmpimage" name="fileid1" value="Attach"
+                                    onchange="PreviewImage();" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+script:
+-------
+
+function PreviewImage() {
+
+
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("txtEmpimage").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("sampleimg").src = oFREvent.target.result;
+
+        };
+    };
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+when click update in grid to remove data:
+-----------------------------------------
+
+$("#mydatatable").delegate("tr", "dblclick", function () {
+        $("#btnsave").hide();
+        $("#btndelete").hide();
+        $("#btnupdate").show();
+        var tab = $("#mydatatable").DataTable();
+        var position = tab.fnGetPosition(this);
+        if (position != null) {
+            var values = tab.fnGetData(position);
+            var sa = values[0];
+            var sa1 = values[1];
+            var sa2 = values[2];
+            var sa3 = values[3];
+
+            $("#tex1").val(sa);
+            $("#tex2").val(sa1);
+            $("#tex3").val(sa2);
+            $("#tex4").val(sa3);
+            var nRow1 = position;
+
+            tab.fnDeleteRow(nRow1);
+        }
+    });
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Multiselect:
+------------
+Box:
+----
+<div class="col-sm-5 col_div">
+                          @Html.DropDownList("SubStoreName", (IEnumerable<SelectListItem>)ViewBag.sublist, new { @class = "selectAll",  @multiple = "multiple", id = "SubStoreIdr" })
+                       </div>
+
+$('#SubStoreIdr').multiselect({
+
+        includeSelectAllOption: true
+    });
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+calculate time b/w two button clicks:
+-------------------------------------
+
+function startButton() {
+        startTime = Date.now();
+    }
+
+    function stopButton() {
+        if (startTime) {
+            var endTime = Date.now();
+            var difference = endTime - startTime;
+            var seconds = (difference * 0.001);
+            alert('Reaction time: ' + seconds + 's');
+            startTime = null;
+        } else {
+            alert('Click the Start button first');
+        }
+    }
+
+startbutton is first button click function and stopbutton is second button click function
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+check click value:
+------------------
+$('#btnchx').click(function () {
+        check();
+    });
+    function check() {
+        if ($('#btnchx').is(':checked')) {
+            $('#tex5').val(1);
+            
+        }
+        else {
+            $('#tex5').val(0);
+        }
+    }
+
+btnchx-checkbox id and tex5 is text box id.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+To save only time in sql:
+-------------------------
+script:
+--------
+
+function startButton() {
+        var d = new Date();
+        var time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+
+        alert(time);
+        $("#tex5").val(time);
+    }
+
+    function stopButton() {
+        var d1 = new Date();
+        var time1 = d1.getHours() + ":" + d1.getMinutes() + ":" + d1.getSeconds();
+
+        alert(time1);
+        $("#tex6").val(time1);
+ 
+    }
+
+class:
+------
+        public DateTime end { get; set; }
+        public DateTime str { get; set; }
+
+controller:
+-----------
+            DateTime dt = starttime;
+            string time = dt.ToString("hh:mm:ss");
+            e.str = Convert.ToDateTime(time);
+           
+            DateTime dt1 = endtime;
+            string time1 = dt1.ToString("hh:mm:ss");
+            e.end = Convert.ToDateTime(time1);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+datatable vertical scroll function:
+---------------------------
+"sScrollY": "200px",
+        "scrollCollapse": true,
+        "paging": true,
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+diff b/w sp & view:
+-------------------
+
+S.No.
+View
+Stored Procedure
+1
+Does not accepts parameters
+Accept parameters
+2
+Can be used as a building block in large query.
+Can not be used as a building block in large query.
+3
+Can contain only one single Select query.
+Can contain several statement like if, else, loop etc.
+4
+Can not perform modification to any table.
+Can perform modification to one or several tables.
+5
+Can be used (sometimes) as the target for Insert, update, delete queries.
+Can not be used as the target for Insert, update, delete queries.
+
+View in SQL Server
+
+A view represents a virtual table. By using view we can join multiple tables and present the data as coming from a single table.
+
+For example consider we have two tables
+
+      1)    UserInformation table with columns userid, username
+      2)    SalaryInformation table with columns salid, userid, salary
+
+Create VIEW by joining above two tables
+
+
+CREATE VIEW VW_UserInfo
+AS
+BEGIN
+SELECT a.userid,a.username,b.salary from UserInformation a INNER JOIN SalaryInformation b ON a.userid=b.userid
+END
+By using above view we can get username or salary based on userid for that we need to create procedure like as shown below
+
+CREATE PROCEDURE GetUserInfo
+@uid INT
+AS
+BEGIN
+SELECT username from VW_UserInfo WHERE userid=@uid
+END
+If you observe above procedure it’s like getting username from single table (VW_UserInfo) by passing userid
+
+Stored Procedure
+
+A stored procedure is a group of sql statements that has been created and stored in the database. Stored procedure will accept input parameters so that a single procedure can be used over the network by several clients using different input data. Stored procedure will reduce network traffic and increase the performance. If we modify stored procedure all the clients will get the updated stored procedure
+
+Sample of creating Stored Procedure
+
+USE AdventureWorks2008R2;
+GO
+CREATE PROCEDURE dbo.sp_who
+AS
+    SELECT FirstName, LastName FROM Person.Person;
+GO
+EXEC sp_who;
+EXEC dbo.sp_who;
+GO
+DROP PROCEDURE dbo.sp_who;
+GO
+------------------------------------------------------------------------------------------------------------------------------------------
+viewbag name depends on id:
+---------------------------
+
+$("#txtrace").change(function () {
+
+        var nir = $("#txtrace option: selected").val();
+
+        var subId = $.map($("#txtrace option:selected"), function (el, i) {
+            return $(el).val();
+        });
+        $("#race1").val(subId);
+    });
+----------------------------------------------------------------------------------------------
+filter function:
+----------------
+
+$("#txtrace option").filter(function () {
+            alert();
+            if ($(this).val() == "needle") {
+                alert($(this).val());
+                return true;
+            }
+        }).prop('selected', true);
+
+-------------------------------------------------------------------------------------------
+autocomplete:
+---------------
+design
+-------
+$("#salesrep").autocomplete({
+
+        source: function (request, response) {
+            //var ModuleID = 5;
+            var ClientId = $("#clientid").val();
+
+            $.ajax({
+                url: '../Store/Purchase/auto11',
+                data: { ClientId: ClientId,
+
+                    SearchText: $('#salesrep').text(),
+
+                    SearchText: request.term
+                },
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data.length == 0) {
+                        BootstrapDialog.alert("Vendor Name not Available");
+                        $('#salesrep').val("");
+                        $("#salesrep").autocomplete("close");
+                    }
+                    else {
+                        response(data, function (item) {
+                            return {
+                                label: item.purchasername,
+                                Purchaserprofileid: item.Purchaserprofileid
+
+                            }
+                        });
+
+                    }
+                }
+            });
+        },
+        minLength: 1,
+        select: da123
+    });
+
+
+    function da123(event, ui) {
+        alert(ui.item.Purchaserprofileid);
+        $('#salesrep').val(ui.item.purchasername);
+        $('#salesrepid').val(ui.item.Purchaserprofileid);
+
+
+    }
+
+controller:
+-----------
+ public JsonResult auto11(string SearchText,Int64 ClientId)
+        {
+            objuser = (HealthCareInMvc4.RoleProfileServiceRef.RoleProfile)Session["UserList"];
+            Int64 UserID = objuser.UserID;
+            Int64 ClientID = objuser.ClientID;
+            //VendorServiceClient obj = new VendorServiceClient(RIAGlobal.GetBinding(), new EndpointAddress(RIAGlobal.GetServicePath(Servicepath, "VendorService.svc")));
+            var zipcode = from c in auto12(SearchText, ClientId)
+                          select new { label = c.purchasername, Purchaserprofileid = c.Purchaserprofileid.ToString() };
+            var autoCompleteData = zipcode.Select(x => new
+            {
+                label = x.label,
+                Purchaserprofileid = x.Purchaserprofileid
+               // Address1 = x.Address1
+
+
+            }).ToList();
+            return this.Json(autoCompleteData, JsonRequestBehavior.AllowGet);
+
+        }
+
+
+        public List<Vendor> auto12( string SearchText, Int64 ClientId)
+        {
+            List<Vendor> VendorList = new List<Vendor>();
+            Vendor objVendor = null;
+            SqlConnection conn = null;
+            SqlCommand cmd = null;
+            SqlDataReader reader;
+            using (conn = new SqlConnection(connectionstring))
+            {
+                conn.Open();
+                cmd = conn.CreateCommand();
+                using (cmd = new SqlCommand("sp_auto", conn))
+                {
+                   
+                    cmd.Parameters.Add(new SqlParameter("name", SearchText));
+                    cmd.Parameters.Add(new SqlParameter("ClientID", ClientId));
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+
+                        objVendor = new Vendor();
+                        objVendor.purchasername = Convert.ToString(reader["purchasername"]);
+                        objVendor.Purchaserprofileid = Convert.ToInt64(reader["Purchaserprofileid"]);
+                        objVendor.ClientID = Convert.ToInt64(reader["ClientID"]);
+                        VendorList.Add(objVendor);
+
+                    }
+                    reader.Close();
+
+                    return VendorList;
+                }
+            }
+
+        }

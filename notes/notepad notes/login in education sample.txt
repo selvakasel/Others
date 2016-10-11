@@ -1,0 +1,282 @@
+<div class="container-fluid">
+        <div class="col-sm-12">
+
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-3">
+                </div>
+                <div class="col-sm-5">
+
+
+
+                    <h1>
+                        REGISTION</h1>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+
+
+
+        <div class="col-sm-12">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-4">
+
+
+                    <label>
+                        ID</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" id="id" class="form-control" style="background-color: Red;" disabled="disabled" /></div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-sm-12">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-4">
+
+
+
+                    <label>
+                        UserName</label></div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="user" />
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-sm-12">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-4">
+
+
+
+
+                    <label>
+                        Password</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" id="pass" class="form-control" />
+                    <label hidden="true" id="hs">
+                        enter the password</label>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-sm-12">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-4">
+
+
+
+
+                    <label>
+                        Conform Password</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" id="txtcon" class="form-control" /></div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-sm-12">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-4">
+
+
+
+
+                    <label>
+                        Gender</label></div>
+                <div class="col-sm-6">
+                    <input type="radio" name="radio1" value="male" /><label>Male</label>
+                    <input type="radio" name="radio1" value="female" /><label>female</label>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-sm-12">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-4">
+
+
+
+
+                    <label>
+                        dob</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" id="txtdob" class="form-control" />
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-sm-12">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-4">
+
+
+
+
+
+
+                    <label>
+                        Age</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" id="txtage" class="form-control" />
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-sm-12">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-4">
+
+
+
+
+                    <label>
+                        Qualifiction</label>
+                </div>
+                <div class="col-sm-6">
+                    <select id="txtqui" style="background-color: Red;">
+                        <option value="Btec">B.tec </option>
+                        <option value="BE.css">BE.css</option>
+                        <option value="BCA">BCA</option>
+                        <option value="BSC.comp">BSC.comp</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-sm-12">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-4">
+
+
+
+
+
+
+
+
+
+                    <label>
+                        Email id</label></div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="mail" />
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-sm-12">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-4">
+
+
+
+
+
+                    <label>
+                        Phone no</label></div>
+                <div class="col-sm-6">
+                    <input type="number" style="background-color: Red; color: Black;" id="phone" class="form-control" /></div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-sm-12">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-4">
+
+
+
+
+
+                    <label>
+                        City</label></div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="city" /></div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-sm-12">
+            <br />
+        </div>
+        <div class="col-sm-12">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-3">
+                    <input type="button" class="btn-danger" id="btn" value="save" />
+                    <input type="button" class="btn-danger" id="btncn" value="Cancle" />
+                </div>
+            </div>
+        </div>
+    </div>
